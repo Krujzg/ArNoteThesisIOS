@@ -1,0 +1,838 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2838AB6964FBA55B9A647AC7 /* Pods_ArNoteThesisIOS_ArNoteThesisIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900F835925985BE1BD3A2057 /* Pods_ArNoteThesisIOS_ArNoteThesisIOSUITests.framework */; };
+		543E0FB31474EBD9E9D18093 /* Pods_ArNoteThesisIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E096DF516E771D66AC4476F /* Pods_ArNoteThesisIOS.framework */; };
+		B01BD0FBC782AA3F1AA23003 /* Pods_ArNoteThesisIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E40BA940F6C82B8870EB4D8 /* Pods_ArNoteThesisIOSTests.framework */; };
+		C504AF23253B0271002905E9 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C504AF22253B0271002905E9 /* AuthenticationServices.framework */; };
+		C504AF2B253B125E002905E9 /* CustomMyNotesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C504AF2A253B125E002905E9 /* CustomMyNotesCell.xib */; };
+		C504AF30253B12C9002905E9 /* MyNotesCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C504AF2F253B12C9002905E9 /* MyNotesCellTableViewCell.swift */; };
+		C527B3EA25334DA2005E18F0 /* logout_menu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C527B3E825334DA1005E18F0 /* logout_menu.jpg */; };
+		C527B3EB25334DA2005E18F0 /* mynotes_menu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C527B3E925334DA2005E18F0 /* mynotes_menu.jpg */; };
+		C527B3F0253352AC005E18F0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C527B3EF253352AC005E18F0 /* MenuViewController.swift */; };
+		C53C3D992533220000ACB66D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53C3D982533220000ACB66D /* AppDelegate.swift */; };
+		C53C3D9B2533220000ACB66D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C53C3D9A2533220000ACB66D /* art.scnassets */; };
+		C53C3D9D2533220000ACB66D /* ArSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53C3D9C2533220000ACB66D /* ArSceneViewController.swift */; };
+		C53C3DA02533220000ACB66D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C53C3D9E2533220000ACB66D /* Main.storyboard */; };
+		C53C3DA22533220100ACB66D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C53C3DA12533220100ACB66D /* Assets.xcassets */; };
+		C53C3DB02533220100ACB66D /* ArNoteThesisIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53C3DAF2533220100ACB66D /* ArNoteThesisIOSTests.swift */; };
+		C53C3DBB2533220100ACB66D /* ArNoteThesisIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53C3DBA2533220100ACB66D /* ArNoteThesisIOSUITests.swift */; };
+		C53C3DE7253326B900ACB66D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C53C3DE6253326B900ACB66D /* GoogleService-Info.plist */; };
+		C53C3E542533485B00ACB66D /* arnote_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = C53C3E532533485A00ACB66D /* arnote_menu.png */; };
+		C587014B253632690034C282 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C587014A253632690034C282 /* CustomTableViewCell.swift */; };
+		C5870150253633A80034C282 /* MyNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C587014F253633A80034C282 /* MyNotesViewController.swift */; };
+		C5870160253635510034C282 /* MyNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C587015F253635510034C282 /* MyNote.swift */; };
+		C5870168253640D30034C282 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5870167253640D30034C282 /* LogInViewController.swift */; };
+		C587016D253640DD0034C282 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C587016C253640DD0034C282 /* RegisterViewController.swift */; };
+		C5870175253652410034C282 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5870174253652410034C282 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C53C3DAC2533220100ACB66D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C53C3D8D253321FF00ACB66D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C53C3D942533220000ACB66D;
+			remoteInfo = ArNoteThesisIOS;
+		};
+		C53C3DB72533220100ACB66D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C53C3D8D253321FF00ACB66D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C53C3D942533220000ACB66D;
+			remoteInfo = ArNoteThesisIOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D3B0294280CA4F56F88725B /* Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		462E1A9D3D5B2EC657A17A9E /* Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5F38C2A84C4B969CB5DD1C4B /* Pods-ArNoteThesisIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArNoteThesisIOS.debug.xcconfig"; path = "Target Support Files/Pods-ArNoteThesisIOS/Pods-ArNoteThesisIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7E096DF516E771D66AC4476F /* Pods_ArNoteThesisIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArNoteThesisIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E40BA940F6C82B8870EB4D8 /* Pods_ArNoteThesisIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArNoteThesisIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		900F835925985BE1BD3A2057 /* Pods_ArNoteThesisIOS_ArNoteThesisIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArNoteThesisIOS_ArNoteThesisIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C504AF22253B0271002905E9 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		C504AF2A253B125E002905E9 /* CustomMyNotesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMyNotesCell.xib; sourceTree = "<group>"; };
+		C504AF2F253B12C9002905E9 /* MyNotesCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesCellTableViewCell.swift; sourceTree = "<group>"; };
+		C527B3E825334DA1005E18F0 /* logout_menu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logout_menu.jpg; sourceTree = "<group>"; };
+		C527B3E925334DA2005E18F0 /* mynotes_menu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mynotes_menu.jpg; sourceTree = "<group>"; };
+		C527B3EF253352AC005E18F0 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		C53C3D952533220000ACB66D /* ArNoteThesisIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArNoteThesisIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C53C3D982533220000ACB66D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C53C3D9A2533220000ACB66D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		C53C3D9C2533220000ACB66D /* ArSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArSceneViewController.swift; sourceTree = "<group>"; };
+		C53C3D9F2533220000ACB66D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C53C3DA12533220100ACB66D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C53C3DA62533220100ACB66D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/macszerez.com/Desktop/Repositories/ArNoteThesisIOS/ArNoteThesisIOS/Supporting Files/Info.plist"; sourceTree = "<absolute>"; };
+		C53C3DAB2533220100ACB66D /* ArNoteThesisIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArNoteThesisIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C53C3DAF2533220100ACB66D /* ArNoteThesisIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArNoteThesisIOSTests.swift; sourceTree = "<group>"; };
+		C53C3DB12533220100ACB66D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C53C3DB62533220100ACB66D /* ArNoteThesisIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArNoteThesisIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C53C3DBA2533220100ACB66D /* ArNoteThesisIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArNoteThesisIOSUITests.swift; sourceTree = "<group>"; };
+		C53C3DBC2533220100ACB66D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C53C3DE6253326B900ACB66D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C53C3E532533485A00ACB66D /* arnote_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arnote_menu.png; sourceTree = "<group>"; };
+		C587014A253632690034C282 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		C587014F253633A80034C282 /* MyNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesViewController.swift; sourceTree = "<group>"; };
+		C587015F253635510034C282 /* MyNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyNote.swift; path = ../Controller/MyNote.swift; sourceTree = "<group>"; };
+		C5870167253640D30034C282 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		C587016C253640DD0034C282 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C5870174253652410034C282 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D622288433EDCEF46D0156A9 /* Pods-ArNoteThesisIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArNoteThesisIOS.release.xcconfig"; path = "Target Support Files/Pods-ArNoteThesisIOS/Pods-ArNoteThesisIOS.release.xcconfig"; sourceTree = "<group>"; };
+		D91B9E84C440FF4E5DD82A50 /* Pods-ArNoteThesisIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArNoteThesisIOSTests.release.xcconfig"; path = "Target Support Files/Pods-ArNoteThesisIOSTests/Pods-ArNoteThesisIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		FDD1154C68F200FDE4A8970C /* Pods-ArNoteThesisIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArNoteThesisIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ArNoteThesisIOSTests/Pods-ArNoteThesisIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C53C3D922533220000ACB66D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C504AF23253B0271002905E9 /* AuthenticationServices.framework in Frameworks */,
+				543E0FB31474EBD9E9D18093 /* Pods_ArNoteThesisIOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C53C3DA82533220100ACB66D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B01BD0FBC782AA3F1AA23003 /* Pods_ArNoteThesisIOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C53C3DB32533220100ACB66D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2838AB6964FBA55B9A647AC7 /* Pods_ArNoteThesisIOS_ArNoteThesisIOSUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C53C3D8C253321FF00ACB66D = {
+			isa = PBXGroup;
+			children = (
+				C53C3D972533220000ACB66D /* ArNoteThesisIOS */,
+				C53C3DAE2533220100ACB66D /* ArNoteThesisIOSTests */,
+				C53C3DB92533220100ACB66D /* ArNoteThesisIOSUITests */,
+				C53C3D962533220000ACB66D /* Products */,
+				E710E38401A734577870D15A /* Pods */,
+				E464C67E4ED2EA746841241E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C53C3D962533220000ACB66D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C53C3D952533220000ACB66D /* ArNoteThesisIOS.app */,
+				C53C3DAB2533220100ACB66D /* ArNoteThesisIOSTests.xctest */,
+				C53C3DB62533220100ACB66D /* ArNoteThesisIOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C53C3D972533220000ACB66D /* ArNoteThesisIOS */ = {
+			isa = PBXGroup;
+			children = (
+				C5870174253652410034C282 /* LaunchScreen.storyboard */,
+				C53C3D9E2533220000ACB66D /* Main.storyboard */,
+				C53C3DE12533261E00ACB66D /* Model */,
+				C53C3DE22533262B00ACB66D /* View */,
+				C53C3DE32533263800ACB66D /* Controller */,
+				C53C3DE42533264300ACB66D /* Supporting Files */,
+				C53C3D9A2533220000ACB66D /* art.scnassets */,
+				C53C3DA12533220100ACB66D /* Assets.xcassets */,
+			);
+			path = ArNoteThesisIOS;
+			sourceTree = "<group>";
+		};
+		C53C3DAE2533220100ACB66D /* ArNoteThesisIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				C53C3DAF2533220100ACB66D /* ArNoteThesisIOSTests.swift */,
+				C53C3DB12533220100ACB66D /* Info.plist */,
+			);
+			path = ArNoteThesisIOSTests;
+			sourceTree = "<group>";
+		};
+		C53C3DB92533220100ACB66D /* ArNoteThesisIOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C53C3DBA2533220100ACB66D /* ArNoteThesisIOSUITests.swift */,
+				C53C3DBC2533220100ACB66D /* Info.plist */,
+			);
+			path = ArNoteThesisIOSUITests;
+			sourceTree = "<group>";
+		};
+		C53C3DE12533261E00ACB66D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C587015F253635510034C282 /* MyNote.swift */,
+				C504AF2A253B125E002905E9 /* CustomMyNotesCell.xib */,
+				C504AF2F253B12C9002905E9 /* MyNotesCellTableViewCell.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C53C3DE22533262B00ACB66D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C53C3DE52533266600ACB66D /* Custom Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C53C3DE32533263800ACB66D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C5870167253640D30034C282 /* LogInViewController.swift */,
+				C587016C253640DD0034C282 /* RegisterViewController.swift */,
+				C53C3D982533220000ACB66D /* AppDelegate.swift */,
+				C53C3D9C2533220000ACB66D /* ArSceneViewController.swift */,
+				C527B3EF253352AC005E18F0 /* MenuViewController.swift */,
+				C587014F253633A80034C282 /* MyNotesViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C53C3DE42533264300ACB66D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C527B3E825334DA1005E18F0 /* logout_menu.jpg */,
+				C527B3E925334DA2005E18F0 /* mynotes_menu.jpg */,
+				C53C3E532533485A00ACB66D /* arnote_menu.png */,
+				C53C3DE6253326B900ACB66D /* GoogleService-Info.plist */,
+				C53C3DA62533220100ACB66D /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C53C3DE52533266600ACB66D /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C587014A253632690034C282 /* CustomTableViewCell.swift */,
+			);
+			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		E464C67E4ED2EA746841241E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C504AF22253B0271002905E9 /* AuthenticationServices.framework */,
+				7E096DF516E771D66AC4476F /* Pods_ArNoteThesisIOS.framework */,
+				900F835925985BE1BD3A2057 /* Pods_ArNoteThesisIOS_ArNoteThesisIOSUITests.framework */,
+				7E40BA940F6C82B8870EB4D8 /* Pods_ArNoteThesisIOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E710E38401A734577870D15A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F38C2A84C4B969CB5DD1C4B /* Pods-ArNoteThesisIOS.debug.xcconfig */,
+				D622288433EDCEF46D0156A9 /* Pods-ArNoteThesisIOS.release.xcconfig */,
+				1D3B0294280CA4F56F88725B /* Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests.debug.xcconfig */,
+				462E1A9D3D5B2EC657A17A9E /* Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests.release.xcconfig */,
+				FDD1154C68F200FDE4A8970C /* Pods-ArNoteThesisIOSTests.debug.xcconfig */,
+				D91B9E84C440FF4E5DD82A50 /* Pods-ArNoteThesisIOSTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C53C3D942533220000ACB66D /* ArNoteThesisIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C53C3DBF2533220100ACB66D /* Build configuration list for PBXNativeTarget "ArNoteThesisIOS" */;
+			buildPhases = (
+				53752E7C56A0FA1A48F0C314 /* [CP] Check Pods Manifest.lock */,
+				C53C3D912533220000ACB66D /* Sources */,
+				C53C3D922533220000ACB66D /* Frameworks */,
+				C53C3D932533220000ACB66D /* Resources */,
+				6D0949CD398A5A9E8EE970F4 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArNoteThesisIOS;
+			productName = ArNoteThesisIOS;
+			productReference = C53C3D952533220000ACB66D /* ArNoteThesisIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C53C3DAA2533220100ACB66D /* ArNoteThesisIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C53C3DC22533220100ACB66D /* Build configuration list for PBXNativeTarget "ArNoteThesisIOSTests" */;
+			buildPhases = (
+				7D7C8391CE30B1BF4F7A4B68 /* [CP] Check Pods Manifest.lock */,
+				C53C3DA72533220100ACB66D /* Sources */,
+				C53C3DA82533220100ACB66D /* Frameworks */,
+				C53C3DA92533220100ACB66D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C53C3DAD2533220100ACB66D /* PBXTargetDependency */,
+			);
+			name = ArNoteThesisIOSTests;
+			productName = ArNoteThesisIOSTests;
+			productReference = C53C3DAB2533220100ACB66D /* ArNoteThesisIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C53C3DB52533220100ACB66D /* ArNoteThesisIOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C53C3DC52533220100ACB66D /* Build configuration list for PBXNativeTarget "ArNoteThesisIOSUITests" */;
+			buildPhases = (
+				BA2C06782BBBD2F7FF4CCFEF /* [CP] Check Pods Manifest.lock */,
+				C53C3DB22533220100ACB66D /* Sources */,
+				C53C3DB32533220100ACB66D /* Frameworks */,
+				C53C3DB42533220100ACB66D /* Resources */,
+				193EE947539CF3F02FE5BA45 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C53C3DB82533220100ACB66D /* PBXTargetDependency */,
+			);
+			name = ArNoteThesisIOSUITests;
+			productName = ArNoteThesisIOSUITests;
+			productReference = C53C3DB62533220100ACB66D /* ArNoteThesisIOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C53C3D8D253321FF00ACB66D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					C53C3D942533220000ACB66D = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					C53C3DAA2533220100ACB66D = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = C53C3D942533220000ACB66D;
+					};
+					C53C3DB52533220100ACB66D = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = C53C3D942533220000ACB66D;
+					};
+				};
+			};
+			buildConfigurationList = C53C3D90253321FF00ACB66D /* Build configuration list for PBXProject "ArNoteThesisIOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C53C3D8C253321FF00ACB66D;
+			productRefGroup = C53C3D962533220000ACB66D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C53C3D942533220000ACB66D /* ArNoteThesisIOS */,
+				C53C3DAA2533220100ACB66D /* ArNoteThesisIOSTests */,
+				C53C3DB52533220100ACB66D /* ArNoteThesisIOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C53C3D932533220000ACB66D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C504AF2B253B125E002905E9 /* CustomMyNotesCell.xib in Resources */,
+				C527B3EB25334DA2005E18F0 /* mynotes_menu.jpg in Resources */,
+				C5870175253652410034C282 /* LaunchScreen.storyboard in Resources */,
+				C527B3EA25334DA2005E18F0 /* logout_menu.jpg in Resources */,
+				C53C3E542533485B00ACB66D /* arnote_menu.png in Resources */,
+				C53C3D9B2533220000ACB66D /* art.scnassets in Resources */,
+				C53C3DE7253326B900ACB66D /* GoogleService-Info.plist in Resources */,
+				C53C3DA22533220100ACB66D /* Assets.xcassets in Resources */,
+				C53C3DA02533220000ACB66D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C53C3DA92533220100ACB66D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C53C3DB42533220100ACB66D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		193EE947539CF3F02FE5BA45 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		53752E7C56A0FA1A48F0C314 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArNoteThesisIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D0949CD398A5A9E8EE970F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArNoteThesisIOS/Pods-ArNoteThesisIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArNoteThesisIOS/Pods-ArNoteThesisIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ArNoteThesisIOS/Pods-ArNoteThesisIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D7C8391CE30B1BF4F7A4B68 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArNoteThesisIOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA2C06782BBBD2F7FF4CCFEF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C53C3D912533220000ACB66D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C53C3D9D2533220000ACB66D /* ArSceneViewController.swift in Sources */,
+				C5870160253635510034C282 /* MyNote.swift in Sources */,
+				C527B3F0253352AC005E18F0 /* MenuViewController.swift in Sources */,
+				C504AF30253B12C9002905E9 /* MyNotesCellTableViewCell.swift in Sources */,
+				C587016D253640DD0034C282 /* RegisterViewController.swift in Sources */,
+				C5870168253640D30034C282 /* LogInViewController.swift in Sources */,
+				C587014B253632690034C282 /* CustomTableViewCell.swift in Sources */,
+				C5870150253633A80034C282 /* MyNotesViewController.swift in Sources */,
+				C53C3D992533220000ACB66D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C53C3DA72533220100ACB66D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C53C3DB02533220100ACB66D /* ArNoteThesisIOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C53C3DB22533220100ACB66D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C53C3DBB2533220100ACB66D /* ArNoteThesisIOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C53C3DAD2533220100ACB66D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C53C3D942533220000ACB66D /* ArNoteThesisIOS */;
+			targetProxy = C53C3DAC2533220100ACB66D /* PBXContainerItemProxy */;
+		};
+		C53C3DB82533220100ACB66D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C53C3D942533220000ACB66D /* ArNoteThesisIOS */;
+			targetProxy = C53C3DB72533220100ACB66D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C53C3D9E2533220000ACB66D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C53C3D9F2533220000ACB66D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C53C3DBD2533220100ACB66D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C53C3DBE2533220100ACB66D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C53C3DC02533220100ACB66D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F38C2A84C4B969CB5DD1C4B /* Pods-ArNoteThesisIOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CODE_SIGN_ENTITLEMENTS = ArNoteThesisIOS/ArNoteThesisIOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UGWP72DX9D;
+				INFOPLIST_FILE = "ArNoteThesisIOS/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.ArNoteThesisIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C53C3DC12533220100ACB66D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D622288433EDCEF46D0156A9 /* Pods-ArNoteThesisIOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CODE_SIGN_ENTITLEMENTS = ArNoteThesisIOS/ArNoteThesisIOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UGWP72DX9D;
+				INFOPLIST_FILE = "ArNoteThesisIOS/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.ArNoteThesisIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C53C3DC32533220100ACB66D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDD1154C68F200FDE4A8970C /* Pods-ArNoteThesisIOSTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ArNoteThesisIOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.ArNoteThesisIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArNoteThesisIOS.app/ArNoteThesisIOS";
+			};
+			name = Debug;
+		};
+		C53C3DC42533220100ACB66D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D91B9E84C440FF4E5DD82A50 /* Pods-ArNoteThesisIOSTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ArNoteThesisIOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.ArNoteThesisIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArNoteThesisIOS.app/ArNoteThesisIOS";
+			};
+			name = Release;
+		};
+		C53C3DC62533220100ACB66D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D3B0294280CA4F56F88725B /* Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ArNoteThesisIOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.ArNoteThesisIOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ArNoteThesisIOS;
+			};
+			name = Debug;
+		};
+		C53C3DC72533220100ACB66D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 462E1A9D3D5B2EC657A17A9E /* Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ArNoteThesisIOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.ArNoteThesisIOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ArNoteThesisIOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C53C3D90253321FF00ACB66D /* Build configuration list for PBXProject "ArNoteThesisIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C53C3DBD2533220100ACB66D /* Debug */,
+				C53C3DBE2533220100ACB66D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C53C3DBF2533220100ACB66D /* Build configuration list for PBXNativeTarget "ArNoteThesisIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C53C3DC02533220100ACB66D /* Debug */,
+				C53C3DC12533220100ACB66D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C53C3DC22533220100ACB66D /* Build configuration list for PBXNativeTarget "ArNoteThesisIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C53C3DC32533220100ACB66D /* Debug */,
+				C53C3DC42533220100ACB66D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C53C3DC52533220100ACB66D /* Build configuration list for PBXNativeTarget "ArNoteThesisIOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C53C3DC62533220100ACB66D /* Debug */,
+				C53C3DC72533220100ACB66D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C53C3D8D253321FF00ACB66D /* Project object */;
+}

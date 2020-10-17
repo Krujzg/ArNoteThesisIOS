@@ -1,0 +1,6 @@
+framework module Pods_ArNoteThesisIOSTests {
+  umbrella header "Pods-ArNoteThesisIOSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
