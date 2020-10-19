@@ -39,12 +39,12 @@ class MyNotesViewController: UIViewController, UITableViewDelegate, UITableViewD
         let myNotesDb = Database.database().reference().child("MyNotes")
         
         myNotesDb.observe(.childAdded) { (snapshot) in
-            let snapshotValue = snapshot.value as! NSArray
+            let snapshotValue = snapshot.value as! NSDictionary
             
-            let shortcode = snapshotValue[0] as! String
-            let type = snapshotValue[1] as! String
-            let date = snapshotValue[2] as! String
-            let textMessage = snapshotValue[3] as! String
+            let shortcode = snapshotValue["shortcode"] as! String
+            let type = snapshotValue["type"] as! String
+            let date = snapshotValue["date"] as! String
+            let textMessage = snapshotValue["textmessage"] as! String
             let myNote = MyNote(
                 shortCode: shortcode,
                 type: type,
