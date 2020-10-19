@@ -17,8 +17,8 @@ class MenuViewController : UIViewController
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    @IBAction func LogoutTheUser(_ sender: UIButton)
-    {
+    
+    @IBAction func LogoutTheUser(_ sender: UIButton) {
         do
         {
          try Auth.auth().signOut()

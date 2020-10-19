@@ -515,7 +515,7 @@
         <!--MenuViewController-->
         <scene sceneID="2X9-TC-1LI">
             <objects>
-                <viewController id="H8g-E6-jqc" userLabel="MenuViewController" sceneMemberID="viewController">
+                <viewController id="H8g-E6-jqc" userLabel="MenuViewController" customClass="MenuViewController" customModule="ArNoteThesisIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yES-E8-8Qx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -594,7 +594,7 @@
                                                 </constraints>
                                                 <state key="normal" image="logout_menu.jpg"/>
                                                 <connections>
-                                                    <action selector="LogoutTheUser:" destination="tUI-ZW-SpD" eventType="touchUpInside" id="Pe2-lr-vH1"/>
+                                                    <action selector="LogoutTheUser:" destination="H8g-E6-jqc" eventType="touchUpInside" id="un2-Y3-xt8"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQj-z3-wzf">
@@ -658,7 +658,6 @@
                     <navigationItem key="navigationItem" id="FuU-lv-aL9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xot-jf-0vG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="tUI-ZW-SpD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2415" y="-933"/>
         </scene>

@@ -115,7 +115,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         let myNoteDb = Database.database().reference().child("MyNotes")
         let dictionary = createDbFormat()
         
-        myNoteDb.childByAutoId().setValue(dictionary)
+        myNoteDb.child(String(nextShortCode)).setValue(dictionary)
         {
             (error,reference) in
             if error != nil{
