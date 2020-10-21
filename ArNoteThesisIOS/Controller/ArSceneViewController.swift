@@ -12,20 +12,19 @@ import Firebase
 
 class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    @IBOutlet var textMessage: UITextField!
+    @IBOutlet var resolveShortCodeTextField: UITextField!
     @IBOutlet var typePickerView: UIPickerView!
+    @IBOutlet var textMessageTextField: UITextField!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet var controllView: UIView!
-    @IBOutlet var applyButton: UIButton!
-    @IBOutlet var cancelButton: UIButton!
-    @IBOutlet var clearButton: UIButton!
-    @IBOutlet var resolveButton: UIButton!
     
-    @IBOutlet var settingButton: UIButton!
     var pickerData: [String] = [String]()
     var type : String = ""
     var textNode = SCNNode()
     var nextShortCode :Int = 1
+    var isResolvedPressed = false
+    var choosenShortCode = ""
+    var lastPanLocation : SCNVector3? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,34 +49,90 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         sceneView.session.pause()
     }
     
+    func registerGestureRecognizers() {
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        self.sceneView.addGestureRecognizer(panGestureRecognizer)
+    }
+    
+    @objc func tapped(sender: UITapGestureRecognizer) {
+        let tapLocation = sender.location(in: sceneView)
+        let hitTestResults = sceneView.hitTest(tapLocation, types: .featurePoint)
+        if let hitResult = hitTestResults.first{
+            if isResolvedPressed
+            {
+                addTextAfterResolvedPressed(at: hitResult)
+                isResolvedPressed = false
+            }
+            else
+            {
+                addText(at: hitResult)}
+            }
+    }
+    
+    @objc func handlePan(panGesture: UIPanGestureRecognizer) {
+      
+      let location = panGesture.location(in: self.sceneView)
+      var panStartZ : CGFloat? = nil
+      
+      switch panGesture.state {
+      case .began:
+        // existing logic from previous approach. Keep this.
+        guard let hitNodeResult = sceneView.hitTest(location, options: nil).first else { return }
+        panStartZ = CGFloat(sceneView.projectPoint(lastPanLocation!).z)
+        // lastPanLocation is new
+        lastPanLocation = hitNodeResult.worldCoordinates
+      case .changed:
+        // This entire case has been replaced
+        let worldTouchPosition = sceneView.unprojectPoint(SCNVector3(location.x, location.y, panStartZ!))
+        let movementVector = SCNVector3(
+          worldTouchPosition.x - lastPanLocation!.x,
+          worldTouchPosition.y - lastPanLocation!.y,
+          worldTouchPosition.z - lastPanLocation!.z)
+        textNode.localTranslate(by: movementVector)
+        self.lastPanLocation = worldTouchPosition
+      default:
+        break
+      }
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {return 1}
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {return pickerData.count}
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) { type = pickerData[row]}
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {return pickerData[row]}
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    /*override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         if let touchLocation = touches.first?.location(in: sceneView) {
             let hitTestResults = sceneView.hitTest(touchLocation, types: .featurePoint)
-            if let hitResult = hitTestResults.first{ addText(at: hitResult)}
+            if let hitResult = hitTestResults.first{
+                if isResolvedPressed
+                {
+                    addTextAfterResolvedPressed(at: hitResult)
+                    isResolvedPressed = false
+                }
+                else
+                {
+                    addText(at: hitResult)}
+                }
         }
-    }
+    }*/
     
     private func addText(at hitResult: ARHitTestResult)
     {
-        let textGeometry = setMyNoteAppearance()
+        let textGeometry = setMyNoteAppearance(chooseNodeText: textMessageTextField.text!, choosenNodeType: type)
         addNodeToTheScene(textGeometry: textGeometry, hitResult: hitResult)
         getNextShortCodeFromTheDb()
         saveMyNoteDataToDb()
     }
     
-    private func setMyNoteAppearance() -> SCNGeometry
+    private func setMyNoteAppearance(chooseNodeText: String, choosenNodeType: String) -> SCNGeometry
     {
-        if textMessage.text == ""{textMessage.text = "Missing text.."}
-        let textGeometry = SCNText(string: textMessage.text, extrusionDepth: 1.0)
-        if type == ""{ type = "Normal"}
-        if type == "Normal" {textGeometry.firstMaterial?.diffuse.contents = UIColor.black}
-        else if type == "Warning"{textGeometry.firstMaterial?.diffuse.contents = UIColor.yellow}
+        let textGeometry = SCNText(string: chooseNodeText, extrusionDepth: 1.0)
+        if choosenNodeType == "Normal" {textGeometry.firstMaterial?.diffuse.contents = UIColor.black}
+        else if choosenNodeType == "Warning"{textGeometry.firstMaterial?.diffuse.contents = UIColor.yellow}
         else{textGeometry.firstMaterial?.diffuse.contents = UIColor.red}
         return textGeometry
     }
@@ -87,12 +142,33 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         textNode = SCNNode(geometry: textGeometry)
         textNode.position = SCNVector3(x: hitResult.worldTransform.columns.3.x, y: hitResult.worldTransform.columns.3.y + 0.01, z: hitResult.worldTransform.columns.3.z)
         textNode.scale = SCNVector3(0.01, 0.01, 0.01)
+        let background = addBackGroundToTheTextNode()
+        textNode.addChildNode(background)
         sceneView.scene.rootNode.addChildNode(textNode)
+    }
+    
+    private func addBackGroundToTheTextNode() -> SCNNode
+    {
+        let minVec = textNode.boundingBox.min
+        let maxVec = textNode.boundingBox.max
+        let bound = SCNVector3Make(maxVec.x - minVec.x,
+                                   maxVec.y - minVec.y,
+                                   maxVec.z - minVec.z);
+
+        let plane = SCNPlane(width: CGFloat(bound.x + 1),
+                            height: CGFloat(bound.y + 1))
+        plane.cornerRadius = 0.2
+        plane.firstMaterial?.diffuse.contents = UIColor.black.withAlphaComponent(0.9)
+
+        let planeNode = SCNNode(geometry: plane)
+        planeNode.position = SCNVector3(CGFloat( minVec.x) + CGFloat(bound.x) / 2 ,
+                                        CGFloat( minVec.y) + CGFloat(bound.y) / 2,CGFloat(minVec.z - 0.01))
+        return planeNode
     }
     
     private func createDbFormat() -> NSDictionary
     {
-        var text_message = textMessage.text
+        var text_message = textMessageTextField.text
         if text_message == "" {text_message = "Missing Text...."}
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd hh:mm:ss"
@@ -124,7 +200,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
             else
             {
                 print("Successful save")
-                self.textMessage.text = ""
+                self.textMessageTextField.text = ""
             }
         }
     }
@@ -140,9 +216,53 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         
         shortCodeDb.updateChildValues(["code" : nextShortCode + 1])
     }
+    @IBAction func resolveAction(_ sender: UIButton)
+    {
+        isResolvedPressed = true
+        choosenShortCode = resolveShortCodeTextField.text!
+    }
     
+    private func addTextAfterResolvedPressed(at hitResult: ARHitTestResult)
+    {
+        let choosenNodeData = getTheChoosenShortCodeFromTheDb()
+        let textmessage = choosenNodeData.value(forKey: "textmessage") as! String
+        let type = choosenNodeData.value(forKey: "type") as! String
+        let textGeometry = setMyNoteAppearance(chooseNodeText: textmessage, choosenNodeType: type )
+        addNodeToTheScene(textGeometry: textGeometry, hitResult: hitResult)
+    }
     
-    @IBAction func applyFilters(_ sender: UIButton){controllView.isHidden = true}
-    @IBAction func cancelFilters(_ sender: UIButton){controllView.isHidden = true}
-    @IBAction func showSettings(_ sender: UIButton) {controllView.isHidden = false}
+    private func getTheChoosenShortCodeFromTheDb() -> NSDictionary
+    {
+        let myNotesDb = Database.database().reference().child("MyNotes")
+        var choosenNodeText = ""
+        var choosenNodeType = ""
+        
+        let query = myNotesDb.queryOrdered(byChild: "shortcode").queryEqual(toValue: choosenShortCode)
+        query.observe(.value, with: { (snapshot) in
+            let snapshotValue = snapshot.value as? NSDictionary
+            choosenNodeText = snapshotValue!["textmessage"] as! String
+            choosenNodeType = snapshotValue!["type"] as! String
+        })
+        return [
+            "type" : choosenNodeType,
+            "textmessage" : choosenNodeText]
+    }
+    
+    @IBAction func openFilters(_ sender: UIBarButtonItem)
+    {
+        controllView.isHidden = false
+    }
+    
+    @IBAction func clearPreviousNode(_ sender: UIButton)
+    {
+        textNode.removeFromParentNode()
+    }
+    @IBAction func cancel(_ sender: UIButton)
+    {
+        controllView.isHidden = true
+    }
+    @IBAction func apply(_ sender: UIButton)
+    {
+        controllView.isHidden = true
+    }
 }
