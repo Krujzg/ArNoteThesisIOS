@@ -3,7 +3,7 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,7 +68,7 @@
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="cancel:" destination="BV1-FR-VrT" eventType="touchUpInside" id="KDr-Tw-mhZ"/>
+                                            <action selector="cancel:" destination="BV1-FR-VrT" eventType="touchUpInside" id="1ES-gW-rkG"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR ACTIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tU-dT-idx">
@@ -94,7 +94,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="resolveAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="1eH-ri-pnD"/>
+                                            <action selector="resolveActionButtonPress:" destination="BV1-FR-VrT" eventType="touchUpInside" id="CAo-tm-i5g"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b45-ta-Vde">
@@ -108,7 +108,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="clearPreviousNode:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oKF-eh-Lw7"/>
+                                            <action selector="clearPrevNode:" destination="BV1-FR-VrT" eventType="touchUpInside" id="efh-M5-Qu1"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x2F-N2-Gmn" userLabel="arTextField">
@@ -142,7 +142,7 @@
                                             <color key="titleColor" systemColor="systemGreenColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="apply:" destination="BV1-FR-VrT" eventType="touchUpInside" id="lU2-9j-2in"/>
+                                            <action selector="apply:" destination="BV1-FR-VrT" eventType="touchUpInside" id="VHD-Xh-E3H"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9lY-3K-SPN" userLabel="resolveTextField">
@@ -220,20 +220,18 @@
                         <barButtonItem title="Filter" image="note" catalog="system" style="plain" id="AbX-Sw-XBz" userLabel="openFilterButton">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="openFilters:" destination="BV1-FR-VrT" id="Hx6-C3-8KQ"/>
+                                <action selector="openFilters:" destination="BV1-FR-VrT" id="dAV-Oh-C2O"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="ADt-Th-TMQ"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="clearButton" destination="b45-ta-Vde" id="G8f-10-hY8"/>
-                        <outlet property="controllView" destination="noZ-5R-dP7" id="tBc-5L-WH0"/>
-                        <outlet property="resolveButton" destination="E3m-W3-Vyp" id="vxb-3C-MIH"/>
-                        <outlet property="resolveShortCodeTextField" destination="9lY-3K-SPN" id="TEH-Ok-Gag"/>
-                        <outlet property="sceneView" destination="9lY-7i-lDf" id="heL-eY-pa9"/>
-                        <outlet property="textMessageTextField" destination="x2F-N2-Gmn" id="0my-u9-1bS"/>
-                        <outlet property="typePickerView" destination="1pg-yz-0wt" id="hfo-PO-edE"/>
+                        <outlet property="controllView" destination="noZ-5R-dP7" id="UR9-ro-nPF"/>
+                        <outlet property="resolveShortCodeTextField" destination="9lY-3K-SPN" id="B51-p1-feU"/>
+                        <outlet property="sceneView" destination="9lY-7i-lDf" id="Tjc-es-bkk"/>
+                        <outlet property="textMessageTextField" destination="x2F-N2-Gmn" id="Af6-z9-jW0"/>
+                        <outlet property="typePickerView" destination="1pg-yz-0wt" id="A53-oy-77A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

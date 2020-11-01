@@ -10,26 +10,30 @@ import SceneKit
 import ARKit
 import Firebase
 
-class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-
+class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    
     @IBOutlet var resolveShortCodeTextField: UITextField!
     @IBOutlet var typePickerView: UIPickerView!
     @IBOutlet var textMessageTextField: UITextField!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet var controllView: UIView!
     
+    
     var pickerData: [String] = [String]()
-    var type : String = ""
+    var type : String = "Normal"
     var textNode = SCNNode()
     var nextShortCode :Int = 1
     var isResolvedPressed = false
     var choosenShortCode = ""
     var lastPanLocation : SCNVector3? = nil
-    
+    var isHitTestingBlocked = true
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pickerData = ["Normal", "Warning", "Urgent"]
+        self.textMessageTextField.delegate = self
+        self.resolveShortCodeTextField.delegate = self
         self.typePickerView.delegate = self
         self.typePickerView.dataSource = self
         sceneView.delegate = self
@@ -103,29 +107,31 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) { type = pickerData[row]}
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {return pickerData[row]}
     
-    /*override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
-        if let touchLocation = touches.first?.location(in: sceneView) {
-            let hitTestResults = sceneView.hitTest(touchLocation, types: .featurePoint)
-            if let hitResult = hitTestResults.first{
-                if isResolvedPressed
-                {
-                    addTextAfterResolvedPressed(at: hitResult)
-                    isResolvedPressed = false
-                }
-                else
-                {
-                    addText(at: hitResult)}
-                }
+        if !isHitTestingBlocked {
+            if let touchLocation = touches.first?.location(in: sceneView) {
+                let hitTestResults = sceneView.hitTest(touchLocation, types: .featurePoint)
+                if let hitResult = hitTestResults.first{
+                    if isResolvedPressed
+                    {
+                        addTextAfterResolvedPressed(at: hitResult)
+                        isResolvedPressed = false
+                    }
+                    else
+                    {
+                        addText(at: hitResult)}
+                    }
+            }
         }
-    }*/
+    }
     
     private func addText(at hitResult: ARHitTestResult)
     {
-        let textGeometry = setMyNoteAppearance(chooseNodeText: textMessageTextField.text!, choosenNodeType: type)
-        addNodeToTheScene(textGeometry: textGeometry, hitResult: hitResult)
-        getNextShortCodeFromTheDb()
-        saveMyNoteDataToDb()
+        var text_message = textMessageTextField.text
+        if text_message == "" {text_message = "Missing Text...."}
+        let textGeometry = setMyNoteAppearance(chooseNodeText: text_message!, choosenNodeType: type)
+        getNextShortCodeFromTheDb(textGeometry: textGeometry, hitResult: hitResult)
     }
     
     private func setMyNoteAppearance(chooseNodeText: String, choosenNodeType: String) -> SCNGeometry
@@ -174,7 +180,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         df.dateFormat = "yyyy-MM-dd hh:mm:ss"
         let now = df.string(from: Date())
         let myNoteData = MyNote(
-            shortCode: String(nextShortCode+1),
+            shortCode: String(nextShortCode),
             type: type,
             date: now,
             textMessage: text_message!)
@@ -196,6 +202,8 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
             (error,reference) in
             if error != nil{
                 print(error!)
+                let alert = UIAlertController(title: "Szerver hiba", message: "Nem elérhető a szerver", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Oké", style: UIAlertAction.Style.default, handler: nil))
             }
             else
             {
@@ -205,64 +213,77 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         }
     }
     
-    private func getNextShortCodeFromTheDb()
+    private func getNextShortCodeFromTheDb(textGeometry: SCNGeometry, hitResult: ARHitTestResult)
     {
         let shortCodeDb = Database.database().reference().child("ShortCode")
             
         shortCodeDb.observe(.value) { (snapshot) in
             let snapshotValue = snapshot.value as? NSDictionary
             self.nextShortCode = snapshotValue!["code"] as! Int
+            self.nextShortCode = self.nextShortCode+1
         }
-        
-        shortCodeDb.updateChildValues(["code" : nextShortCode + 1])
-    }
-    @IBAction func resolveAction(_ sender: UIButton)
-    {
-        isResolvedPressed = true
-        choosenShortCode = resolveShortCodeTextField.text!
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+            shortCodeDb.child("code").setValue(self.nextShortCode)
+            self.saveMyNoteDataToDb()
+        })
+        addNodeToTheScene(textGeometry: textGeometry, hitResult: hitResult)
     }
     
     private func addTextAfterResolvedPressed(at hitResult: ARHitTestResult)
     {
-        let choosenNodeData = getTheChoosenShortCodeFromTheDb()
-        let textmessage = choosenNodeData.value(forKey: "textmessage") as! String
-        let type = choosenNodeData.value(forKey: "type") as! String
-        let textGeometry = setMyNoteAppearance(chooseNodeText: textmessage, choosenNodeType: type )
-        addNodeToTheScene(textGeometry: textGeometry, hitResult: hitResult)
+        getTheChoosenShortCodeFromTheDb(at: hitResult)
     }
     
-    private func getTheChoosenShortCodeFromTheDb() -> NSDictionary
+    private func getTheChoosenShortCodeFromTheDb(at hitResult: ARHitTestResult)
     {
         let myNotesDb = Database.database().reference().child("MyNotes")
         var choosenNodeText = ""
         var choosenNodeType = ""
         
-        let query = myNotesDb.queryOrdered(byChild: "shortcode").queryEqual(toValue: choosenShortCode)
-        query.observe(.value, with: { (snapshot) in
+        myNotesDb.child(choosenShortCode).observe(.value) { (snapshot) in
             let snapshotValue = snapshot.value as? NSDictionary
             choosenNodeText = snapshotValue!["textmessage"] as! String
             choosenNodeType = snapshotValue!["type"] as! String
-        })
-        return [
-            "type" : choosenNodeType,
-            "textmessage" : choosenNodeText]
+            self.setDataAfterResolveAction(choosenNodeText: choosenNodeText, choosenNodeType: choosenNodeType, hitResult: hitResult)
+        }
     }
     
-    @IBAction func openFilters(_ sender: UIBarButtonItem)
+    private func setDataAfterResolveAction(choosenNodeText : String, choosenNodeType : String, hitResult : ARHitTestResult)
     {
-        controllView.isHidden = false
+        let textmessage = choosenNodeText
+        let type = choosenNodeType
+        let textGeometry = setMyNoteAppearance(chooseNodeText: textmessage, choosenNodeType: type )
+        addNodeToTheScene(textGeometry: textGeometry, hitResult: hitResult)
     }
     
-    @IBAction func clearPreviousNode(_ sender: UIButton)
+    @IBAction func apply(_ sender: UIButton)
     {
-        textNode.removeFromParentNode()
+        controllView.isHidden = true
+        isHitTestingBlocked = false
     }
     @IBAction func cancel(_ sender: UIButton)
     {
         controllView.isHidden = true
+        isHitTestingBlocked = false
     }
-    @IBAction func apply(_ sender: UIButton)
+    @IBAction func openFilters(_ sender: UIBarButtonItem)
     {
-        controllView.isHidden = true
+        controllView.isHidden = false
+        isHitTestingBlocked = true
+    }
+    @IBAction func resolveActionButtonPress(_ sender: UIButton)
+    {
+        isResolvedPressed = true
+        choosenShortCode = resolveShortCodeTextField.text!
+    }
+    @IBAction func clearPrevNode(_ sender: UIButton)
+    {
+        textNode.removeFromParentNode()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        resolveShortCodeTextField.resignFirstResponder()
+        textMessageTextField.resignFirstResponder()
+        return true
     }
 }

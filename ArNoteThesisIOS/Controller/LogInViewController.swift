@@ -10,6 +10,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.emailTextField.delegate = self
@@ -31,6 +33,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             if error != nil
             {
                 print(error!)
+                let alert = UIAlertController(title: "Helytelen bejelentkezés", message: "Hibás felhasználónév vagy jelszó", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Oké", style: UIAlertAction.Style.default, handler: nil))
             }
             else{
                 print("login successful")

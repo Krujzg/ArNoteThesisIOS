@@ -33,6 +33,8 @@ class RegisterViewController: UIViewController {
                 
                 if error != nil {
                     print(error)
+                    let alert = UIAlertController(title: "Sikertelen regisztráció", message: "Szerver hiba", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Oké", style: UIAlertAction.Style.default, handler: nil))
                 }
                 else
                 {
@@ -44,6 +46,8 @@ class RegisterViewController: UIViewController {
         }
         else{
             print("Registration unsuccessful")
+            let alert = UIAlertController(title: "Sikertelen regisztráció", message: "A jelszavak nem egyeznek", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Oké", style: UIAlertAction.Style.default, handler: nil))
         }
       
     }
