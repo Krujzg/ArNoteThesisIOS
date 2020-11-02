@@ -22,11 +22,16 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     var pickerData: [String] = [String]()
     var type : String = "Normal"
     var textNode = SCNNode()
+    var selectedNode: SCNNode?
     var nextShortCode :Int = 1
     var isResolvedPressed = false
     var choosenShortCode = ""
     var lastPanLocation : SCNVector3? = nil
     var isHitTestingBlocked = true
+    
+    var PCoordx: Float = 0.0
+    var PCoordy: Float = 0.0
+    var PCoordz: Float = 0.0
      
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,74 +62,76 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        let longGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(rotate))
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinch))
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
         self.sceneView.addGestureRecognizer(panGestureRecognizer)
+        self.sceneView.addGestureRecognizer(longGestureRecognizer)
+        self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
     }
     
-    @objc func tapped(sender: UITapGestureRecognizer) {
-        let tapLocation = sender.location(in: sceneView)
-        let hitTestResults = sceneView.hitTest(tapLocation, types: .featurePoint)
-        if let hitResult = hitTestResults.first{
-            if isResolvedPressed
-            {
-                addTextAfterResolvedPressed(at: hitResult)
-                isResolvedPressed = false
-            }
-            else
-            {
-                addText(at: hitResult)}
-            }
+    @IBAction func tapped(_ sender: UITapGestureRecognizer)
+    {
+        if !isHitTestingBlocked {
+            let tapLocation = sender.location(in: sceneView)
+            let hitTestResults = sceneView.hitTest(tapLocation, types: .featurePoint)
+            if let hitResult = hitTestResults.first{
+                if isResolvedPressed
+                {
+                    addTextAfterResolvedPressed(at: hitResult)
+                    isResolvedPressed = false
+                }
+                else
+                {
+                    addText(at: hitResult)}
+                }
+        }
+    }
+    @IBAction func handlePan(_ sender: UIPanGestureRecognizer)
+    {
+       
     }
     
-    @objc func handlePan(panGesture: UIPanGestureRecognizer) {
-      
-      let location = panGesture.location(in: self.sceneView)
-      var panStartZ : CGFloat? = nil
-      
-      switch panGesture.state {
-      case .began:
-        // existing logic from previous approach. Keep this.
-        guard let hitNodeResult = sceneView.hitTest(location, options: nil).first else { return }
-        panStartZ = CGFloat(sceneView.projectPoint(lastPanLocation!).z)
-        // lastPanLocation is new
-        lastPanLocation = hitNodeResult.worldCoordinates
-      case .changed:
-        // This entire case has been replaced
-        let worldTouchPosition = sceneView.unprojectPoint(SCNVector3(location.x, location.y, panStartZ!))
-        let movementVector = SCNVector3(
-          worldTouchPosition.x - lastPanLocation!.x,
-          worldTouchPosition.y - lastPanLocation!.y,
-          worldTouchPosition.z - lastPanLocation!.z)
-        textNode.localTranslate(by: movementVector)
-        self.lastPanLocation = worldTouchPosition
-      default:
-        break
-      }
+    @IBAction func rotate(_ sender: UILongPressGestureRecognizer)
+    {
+        let holdLocation = sender.location(in: sceneView)
+        let hitTest = sceneView.hitTest(holdLocation)
+        if !hitTest.isEmpty {
+            let results = hitTest.first!
+            let node = results.node
+            let result = hitTest.first!
+            if sender.state == .began {
+                let rotate = SCNAction.rotateBy(x: 0, y: CGFloat(45.degreesToRadians), z: 0, duration: 1)
+                node.runAction(rotate)
+            } else if sender.state == .ended {
+                result.node.removeAllActions()
+            }
+        }
+        
+    }
+    
+    @IBAction func pinch(_ sender: UIPinchGestureRecognizer)
+    {
+        let pinchLocation = sender.location(in: sceneView)
+        let hitTest = sceneView.hitTest(pinchLocation)
+        
+        if !hitTest.isEmpty {
+            
+            let results = hitTest.first!
+            let node = results.node
+            let pinchAction = SCNAction.scale(by: sender.scale, duration: 0)
+            print(sender.scale)
+            //let nodeChildren = results.node.childNodes.first
+            //nodeChildren!.runAction(pinchAction)
+            node.runAction(pinchAction)
+            sender.scale = 1.0
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {return 1}
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {return pickerData.count}
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) { type = pickerData[row]}
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {return pickerData[row]}
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
-        if !isHitTestingBlocked {
-            if let touchLocation = touches.first?.location(in: sceneView) {
-                let hitTestResults = sceneView.hitTest(touchLocation, types: .featurePoint)
-                if let hitResult = hitTestResults.first{
-                    if isResolvedPressed
-                    {
-                        addTextAfterResolvedPressed(at: hitResult)
-                        isResolvedPressed = false
-                    }
-                    else
-                    {
-                        addText(at: hitResult)}
-                    }
-            }
-        }
-    }
     
     private func addText(at hitResult: ARHitTestResult)
     {
@@ -148,12 +155,10 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         textNode = SCNNode(geometry: textGeometry)
         textNode.position = SCNVector3(x: hitResult.worldTransform.columns.3.x, y: hitResult.worldTransform.columns.3.y + 0.01, z: hitResult.worldTransform.columns.3.z)
         textNode.scale = SCNVector3(0.01, 0.01, 0.01)
-        let background = addBackGroundToTheTextNode()
-        textNode.addChildNode(background)
         sceneView.scene.rootNode.addChildNode(textNode)
     }
     
-    private func addBackGroundToTheTextNode() -> SCNNode
+    /*private func addBackGroundToTheTextNode() -> SCNNode
     {
         let minVec = textNode.boundingBox.min
         let maxVec = textNode.boundingBox.max
@@ -170,7 +175,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         planeNode.position = SCNVector3(CGFloat( minVec.x) + CGFloat(bound.x) / 2 ,
                                         CGFloat( minVec.y) + CGFloat(bound.y) / 2,CGFloat(minVec.z - 0.01))
         return planeNode
-    }
+    }*/
     
     private func createDbFormat() -> NSDictionary
     {
@@ -286,4 +291,15 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         textMessageTextField.resignFirstResponder()
         return true
     }
+    
+ 
 }
+extension Int {
+    
+    var degreesToRadians: Double { return Double(self) * .pi/180}
+}
+enum CategoryBitMask: Int {
+      case categoryToSelect = 2        // 010
+      case otherCategoryToSelect = 4   // 100
+      // you can add more bit masks below . . .
+  }

@@ -22,10 +22,17 @@
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lY-7i-lDf" userLabel="sceneview">
                                 <rect key="frame" x="0.0" y="17" width="375" height="724"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="724" id="d7e-I6-bCR"/>
                                     <constraint firstAttribute="width" constant="375" id="sGS-XI-xwg"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="V0P-yj-jEr" appends="YES" id="qFc-4U-9RA"/>
+                                    <outletCollection property="gestureRecognizers" destination="bEs-Ic-4av" appends="YES" id="1xG-Ou-S8b"/>
+                                    <outletCollection property="gestureRecognizers" destination="zm2-Rb-EJe" appends="YES" id="qQI-qs-Awn"/>
+                                    <outletCollection property="gestureRecognizers" destination="j22-GJ-dfJ" appends="YES" id="eYv-Dl-aTJ"/>
+                                </connections>
                             </arscnView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noZ-5R-dP7" userLabel="controlView">
                                 <rect key="frame" x="24.666666666666657" y="114.66666666666669" width="326" height="529"/>
@@ -235,6 +242,26 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="V0P-yj-jEr">
+                    <connections>
+                        <action selector="tapped:" destination="BV1-FR-VrT" id="p6z-Ks-KfR"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="bEs-Ic-4av">
+                    <connections>
+                        <action selector="handlePan:" destination="BV1-FR-VrT" id="DGM-m0-v84"/>
+                    </connections>
+                </panGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="zm2-Rb-EJe">
+                    <connections>
+                        <action selector="rotate:" destination="BV1-FR-VrT" id="hCJ-EC-6Hm"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pinchGestureRecognizer id="j22-GJ-dfJ">
+                    <connections>
+                        <action selector="pinch:" destination="BV1-FR-VrT" id="NZu-Fg-jMG"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1986.4000000000001" y="-111.57635467980296"/>
         </scene>
@@ -730,6 +757,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="d7X-x5-f9U"/>
         <segue reference="9XJ-7A-5Hr"/>
     </inferredMetricsTieBreakers>
     <resources>
