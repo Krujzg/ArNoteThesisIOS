@@ -1,15 +1,8 @@
-//
-//  RegisterViewController.swift
-//  Flash Chat
-//
-//  This is the View Controller which registers new users with Firebase
-//
-
 import UIKit
 import Firebase
 import SVProgressHUD
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate  {
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -17,17 +10,17 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        self.passwordAgainTextField.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    override func didReceiveMemoryWarning() { super.didReceiveMemoryWarning() }
     
     @IBAction func registerPressed(_ sender: UIButton)
     {
         if passwordTextField.text == passwordAgainTextField.text {
             SVProgressHUD.show()
-            //TODO: Set up a new user on our Firebase database
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) {
                 (user, error) in
                 
@@ -49,6 +42,12 @@ class RegisterViewController: UIViewController {
             let alert = UIAlertController(title: "Sikertelen regisztráció", message: "A jelszavak nem egyeznek", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Oké", style: UIAlertAction.Style.default, handler: nil))
         }
-      
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        passwordAgainTextField.resignFirstResponder()
+        return true
     }
 }

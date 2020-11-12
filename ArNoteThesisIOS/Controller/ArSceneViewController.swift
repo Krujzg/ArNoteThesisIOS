@@ -17,7 +17,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     @IBOutlet var textMessageTextField: UITextField!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet var controllView: UIView!
-    
+    @IBOutlet var MessageBox: UITextView!
     
     var pickerData: [String] = [String]()
     var type : String = "Normal"
@@ -32,6 +32,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     var PCoordx: Float = 0.0
     var PCoordy: Float = 0.0
     var PCoordz: Float = 0.0
+    let kMovingLengthPerLoop: CGFloat = 0.5
      
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,15 +62,58 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     func registerGestureRecognizers() {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-        let longGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(rotate))
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinch))
-        self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         self.sceneView.addGestureRecognizer(panGestureRecognizer)
-        self.sceneView.addGestureRecognizer(longGestureRecognizer)
+        self.sceneView.addGestureRecognizer(tapGestureRecognizer)
         self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
     }
     
+    @IBAction func handlePan(_ sender: UIPanGestureRecognizer)
+    {
+        var hitNode : [SCNHitTestResult]
+        switch sender.state {
+            case .began:
+                hitNode = self.sceneView.hitTest(sender.location(in: self.sceneView),
+                                                     options: nil)
+                self.selectedNode = hitNode.first?.node
+                print(self.selectedNode)
+                if selectedNode != nil {
+                    self.PCoordx = (hitNode.first?.worldCoordinates.x)!
+                    self.PCoordy = (hitNode.first?.worldCoordinates.y)!
+                    self.PCoordz = (hitNode.first?.worldCoordinates.z)!
+                }
+            case .changed:
+                // when you start to pan in screen with your finger
+                // hittest gives new coordinates of touched location in sceneView
+                // coord-pcoord gives distance to move or distance paned in sceneview
+                hitNode = sceneView.hitTest(sender.location(in: sceneView), options: nil)
+                if selectedNode != nil {
+                    if let coordx = hitNode.first?.worldCoordinates.x,
+                        let coordy = hitNode.first?.worldCoordinates.y,
+                        let coordz = hitNode.first?.worldCoordinates.z {
+                        let action = SCNAction.moveBy(x: CGFloat(coordx - PCoordx),
+                                                      y: CGFloat(coordy - PCoordy),
+                                                      z: CGFloat(coordz - PCoordz),
+                                                      duration: 0.0)
+                        self.selectedNode?.runAction(action)
+
+                        self.PCoordx = coordx
+                        self.PCoordy = coordy
+                        self.PCoordz = coordz
+                    }
+
+                    sender.setTranslation(CGPoint.zero, in: self.sceneView)
+                }
+               
+            case .ended:
+                self.PCoordx = 0.0
+                self.PCoordy = 0.0
+                self.PCoordz = 0.0
+            default:
+                break
+            }
+    }
     @IBAction func tapped(_ sender: UITapGestureRecognizer)
     {
         if !isHitTestingBlocked {
@@ -87,28 +131,6 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
                 }
         }
     }
-    @IBAction func handlePan(_ sender: UIPanGestureRecognizer)
-    {
-       
-    }
-    
-    @IBAction func rotate(_ sender: UILongPressGestureRecognizer)
-    {
-        let holdLocation = sender.location(in: sceneView)
-        let hitTest = sceneView.hitTest(holdLocation)
-        if !hitTest.isEmpty {
-            let results = hitTest.first!
-            let node = results.node
-            let result = hitTest.first!
-            if sender.state == .began {
-                let rotate = SCNAction.rotateBy(x: 0, y: CGFloat(45.degreesToRadians), z: 0, duration: 1)
-                node.runAction(rotate)
-            } else if sender.state == .ended {
-                result.node.removeAllActions()
-            }
-        }
-        
-    }
     
     @IBAction func pinch(_ sender: UIPinchGestureRecognizer)
     {
@@ -116,7 +138,6 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         let hitTest = sceneView.hitTest(pinchLocation)
         
         if !hitTest.isEmpty {
-            
             let results = hitTest.first!
             let node = results.node
             let pinchAction = SCNAction.scale(by: sender.scale, duration: 0)
@@ -156,6 +177,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         textNode.position = SCNVector3(x: hitResult.worldTransform.columns.3.x, y: hitResult.worldTransform.columns.3.y + 0.01, z: hitResult.worldTransform.columns.3.z)
         textNode.scale = SCNVector3(0.01, 0.01, 0.01)
         sceneView.scene.rootNode.addChildNode(textNode)
+        MessageBox.text = "Arnote added! Shortcode:\(String(nextShortCode-1))"
     }
     
     /*private func addBackGroundToTheTextNode() -> SCNNode
@@ -236,6 +258,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     
     private func addTextAfterResolvedPressed(at hitResult: ARHitTestResult)
     {
+        MessageBox.text = "Adding \(choosenShortCode) Note..."
         getTheChoosenShortCodeFromTheDb(at: hitResult)
     }
     
@@ -259,6 +282,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         let type = choosenNodeType
         let textGeometry = setMyNoteAppearance(chooseNodeText: textmessage, choosenNodeType: type )
         addNodeToTheScene(textGeometry: textGeometry, hitResult: hitResult)
+        MessageBox.text = " \(textmessage) arnote added!"
     }
     
     @IBAction func apply(_ sender: UIButton)
@@ -271,7 +295,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         controllView.isHidden = true
         isHitTestingBlocked = false
     }
-    @IBAction func openFilters(_ sender: UIBarButtonItem)
+    @IBAction func openFilter(_ sender: UIButton)
     {
         controllView.isHidden = false
         isHitTestingBlocked = true
@@ -291,15 +315,15 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         textMessageTextField.resignFirstResponder()
         return true
     }
-    
- 
 }
-extension Int {
-    
-    var degreesToRadians: Double { return Double(self) * .pi/180}
-}
+extension Int { var degreesToRadians: Double { return Double(self) * .pi/180}}
+
 enum CategoryBitMask: Int {
       case categoryToSelect = 2        // 010
       case otherCategoryToSelect = 4   // 100
       // you can add more bit masks below . . .
   }
+
+enum BodyType : Int {
+    case ObjectModel = 2;
+}
