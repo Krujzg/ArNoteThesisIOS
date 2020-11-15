@@ -1,10 +1,3 @@
-//
-//  MyNotesViewController.swift
-//  ArNoteThesisIOS
-//
-//  Created by Gergo on 2020. 10. 13..
-//
-
 import UIKit
 import Firebase
 import ChameleonFramework
@@ -12,6 +5,9 @@ import ChameleonFramework
 class MyNotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     var myNotesArray : [MyNote] = [MyNote]()
+    let firebaseRepository = FireBaseRepository()
+    lazy var backgroundThread : DispatchQueue = { return DispatchQueue.init(label: "background.queue" , attributes: .concurrent) }()
+    
     
     @IBOutlet var myNotesTableView: UITableView!
 
@@ -24,8 +20,7 @@ class MyNotesViewController: UIViewController, UITableViewDelegate, UITableViewD
         myNotesTableView.register(UINib(nibName: "CustomMyNotesCell", bundle: nil), forCellReuseIdentifier: "MyNoteCell")
         
         configureTableView()
-        retrieveMessages()
-        //myNotesTableView.separatorStyle = .none
+        firebaseRepository.retrieveNotes(completionHandler:{ (success, myNote) -> Void in if success { self.setTableViewData(myNote: myNote)}  })
     }
     
     func configureTableView()
@@ -34,7 +29,7 @@ class MyNotesViewController: UIViewController, UITableViewDelegate, UITableViewD
         myNotesTableView.estimatedRowHeight = 120.0
     }
     
-    func retrieveMessages(){
+   /* func retrieveNotes(completionHandler: @escaping CompletionHandler){
         
         let myNotesDb = Database.database().reference().child("MyNotes")
         
@@ -45,16 +40,20 @@ class MyNotesViewController: UIViewController, UITableViewDelegate, UITableViewD
             let type = snapshotValue["type"] as! String
             let date = snapshotValue["date"] as! String
             let textMessage = snapshotValue["textmessage"] as! String
-            let myNote = MyNote(
+            self.myNote = MyNote(
                 shortCode: shortcode,
                 type: type,
                 date: date,
                 textMessage: textMessage)
-            
-            self.myNotesArray.append(myNote)
-            self.configureTableView()
-            self.myNotesTableView.reloadData()
-        }
+            completionHandler(true)
+            }
+        
+    }*/
+    
+    func setTableViewData(myNote: MyNote) {
+        self.myNotesArray.append(myNote)
+        self.configureTableView()
+        self.myNotesTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -102,11 +101,6 @@ class MyNotesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return cell
     }
-    
-    
-    //TODO: Declare numberOfRowsInSection here:
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myNotesArray.count
-    }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return myNotesArray.count }
 }

@@ -25,6 +25,9 @@
 		C53C3DBB2533220100ACB66D /* ArNoteThesisIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53C3DBA2533220100ACB66D /* ArNoteThesisIOSUITests.swift */; };
 		C53C3DE7253326B900ACB66D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C53C3DE6253326B900ACB66D /* GoogleService-Info.plist */; };
 		C53C3E542533485B00ACB66D /* arnote_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = C53C3E532533485A00ACB66D /* arnote_menu.png */; };
+		C54088E625603A84004C1682 /* LoginSceneUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54088E525603A84004C1682 /* LoginSceneUITest.swift */; };
+		C54088F225603B09004C1682 /* RegistrationViewUiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54088F125603B09004C1682 /* RegistrationViewUiTests.swift */; };
+		C546C7A42561A7F4003AB854 /* FireBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C546C7A32561A7F4003AB854 /* FireBaseRepository.swift */; };
 		C587014B253632690034C282 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C587014A253632690034C282 /* CustomTableViewCell.swift */; };
 		C5870150253633A80034C282 /* MyNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C587014F253633A80034C282 /* MyNotesViewController.swift */; };
 		C5870160253635510034C282 /* MyNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C587015F253635510034C282 /* MyNote.swift */; };
@@ -42,6 +45,13 @@
 			remoteInfo = ArNoteThesisIOS;
 		};
 		C53C3DB72533220100ACB66D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C53C3D8D253321FF00ACB66D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C53C3D942533220000ACB66D;
+			remoteInfo = ArNoteThesisIOS;
+		};
+		C54088E825603A84004C1682 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C53C3D8D253321FF00ACB66D /* Project object */;
 			proxyType = 1;
@@ -78,6 +88,11 @@
 		C53C3DBC2533220100ACB66D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C53C3DE6253326B900ACB66D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C53C3E532533485A00ACB66D /* arnote_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arnote_menu.png; sourceTree = "<group>"; };
+		C54088E325603A84004C1682 /* LoginSceneUITest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginSceneUITest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C54088E525603A84004C1682 /* LoginSceneUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneUITest.swift; sourceTree = "<group>"; };
+		C54088E725603A84004C1682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C54088F125603B09004C1682 /* RegistrationViewUiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewUiTests.swift; sourceTree = "<group>"; };
+		C546C7A32561A7F4003AB854 /* FireBaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseRepository.swift; sourceTree = "<group>"; };
 		C587014A253632690034C282 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		C587014F253633A80034C282 /* MyNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesViewController.swift; sourceTree = "<group>"; };
 		C587015F253635510034C282 /* MyNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyNote.swift; path = ../Controller/MyNote.swift; sourceTree = "<group>"; };
@@ -115,6 +130,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C54088E025603A84004C1682 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -124,6 +146,7 @@
 				C53C3D972533220000ACB66D /* ArNoteThesisIOS */,
 				C53C3DAE2533220100ACB66D /* ArNoteThesisIOSTests */,
 				C53C3DB92533220100ACB66D /* ArNoteThesisIOSUITests */,
+				C54088E425603A84004C1682 /* LoginSceneUITest */,
 				C53C3D962533220000ACB66D /* Products */,
 				E710E38401A734577870D15A /* Pods */,
 				E464C67E4ED2EA746841241E /* Frameworks */,
@@ -136,6 +159,7 @@
 				C53C3D952533220000ACB66D /* ArNoteThesisIOS.app */,
 				C53C3DAB2533220100ACB66D /* ArNoteThesisIOSTests.xctest */,
 				C53C3DB62533220100ACB66D /* ArNoteThesisIOSUITests.xctest */,
+				C54088E325603A84004C1682 /* LoginSceneUITest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,6 +191,7 @@
 		C53C3DB92533220100ACB66D /* ArNoteThesisIOSUITests */ = {
 			isa = PBXGroup;
 			children = (
+				C54088F125603B09004C1682 /* RegistrationViewUiTests.swift */,
 				C53C3DBA2533220100ACB66D /* ArNoteThesisIOSUITests.swift */,
 				C53C3DBC2533220100ACB66D /* Info.plist */,
 			);
@@ -200,6 +225,7 @@
 				C53C3D9C2533220000ACB66D /* ArSceneViewController.swift */,
 				C527B3EF253352AC005E18F0 /* MenuViewController.swift */,
 				C587014F253633A80034C282 /* MyNotesViewController.swift */,
+				C546C7A32561A7F4003AB854 /* FireBaseRepository.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -222,6 +248,15 @@
 				C587014A253632690034C282 /* CustomTableViewCell.swift */,
 			);
 			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		C54088E425603A84004C1682 /* LoginSceneUITest */ = {
+			isa = PBXGroup;
+			children = (
+				C54088E525603A84004C1682 /* LoginSceneUITest.swift */,
+				C54088E725603A84004C1682 /* Info.plist */,
+			);
+			path = LoginSceneUITest;
 			sourceTree = "<group>";
 		};
 		E464C67E4ED2EA746841241E /* Frameworks */ = {
@@ -309,13 +344,31 @@
 			productReference = C53C3DB62533220100ACB66D /* ArNoteThesisIOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C54088E225603A84004C1682 /* LoginSceneUITest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C54088EA25603A84004C1682 /* Build configuration list for PBXNativeTarget "LoginSceneUITest" */;
+			buildPhases = (
+				C54088DF25603A84004C1682 /* Sources */,
+				C54088E025603A84004C1682 /* Frameworks */,
+				C54088E125603A84004C1682 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C54088E925603A84004C1682 /* PBXTargetDependency */,
+			);
+			name = LoginSceneUITest;
+			productName = LoginSceneUITest;
+			productReference = C54088E325603A84004C1682 /* LoginSceneUITest.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C53C3D8D253321FF00ACB66D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					C53C3D942533220000ACB66D = {
@@ -327,6 +380,10 @@
 					};
 					C53C3DB52533220100ACB66D = {
 						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = C53C3D942533220000ACB66D;
+					};
+					C54088E225603A84004C1682 = {
+						CreatedOnToolsVersion = 12.1;
 						TestTargetID = C53C3D942533220000ACB66D;
 					};
 				};
@@ -347,6 +404,7 @@
 				C53C3D942533220000ACB66D /* ArNoteThesisIOS */,
 				C53C3DAA2533220100ACB66D /* ArNoteThesisIOSTests */,
 				C53C3DB52533220100ACB66D /* ArNoteThesisIOSUITests */,
+				C54088E225603A84004C1682 /* LoginSceneUITest */,
 			);
 		};
 /* End PBXProject section */
@@ -376,6 +434,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C53C3DB42533220100ACB66D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C54088E125603A84004C1682 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -494,6 +559,7 @@
 			files = (
 				C53C3D9D2533220000ACB66D /* ArSceneViewController.swift in Sources */,
 				C5870160253635510034C282 /* MyNote.swift in Sources */,
+				C546C7A42561A7F4003AB854 /* FireBaseRepository.swift in Sources */,
 				C527B3F0253352AC005E18F0 /* MenuViewController.swift in Sources */,
 				C504AF30253B12C9002905E9 /* MyNotesCellTableViewCell.swift in Sources */,
 				C587016D253640DD0034C282 /* RegisterViewController.swift in Sources */,
@@ -517,6 +583,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C53C3DBB2533220100ACB66D /* ArNoteThesisIOSUITests.swift in Sources */,
+				C54088F225603B09004C1682 /* RegistrationViewUiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C54088DF25603A84004C1682 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C54088E625603A84004C1682 /* LoginSceneUITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +607,11 @@
 			isa = PBXTargetDependency;
 			target = C53C3D942533220000ACB66D /* ArNoteThesisIOS */;
 			targetProxy = C53C3DB72533220100ACB66D /* PBXContainerItemProxy */;
+		};
+		C54088E925603A84004C1682 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C53C3D942533220000ACB66D /* ArNoteThesisIOS */;
+			targetProxy = C54088E825603A84004C1682 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -716,6 +796,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UGWP72DX9D;
 				INFOPLIST_FILE = ArNoteThesisIOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -738,6 +819,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UGWP72DX9D;
 				INFOPLIST_FILE = ArNoteThesisIOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -759,6 +841,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UGWP72DX9D;
 				INFOPLIST_FILE = ArNoteThesisIOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -779,6 +862,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UGWP72DX9D;
 				INFOPLIST_FILE = ArNoteThesisIOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -786,6 +870,46 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.ArNoteThesisIOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ArNoteThesisIOS;
+			};
+			name = Release;
+		};
+		C54088EB25603A84004C1682 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UGWP72DX9D;
+				INFOPLIST_FILE = LoginSceneUITest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.LoginSceneUITest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ArNoteThesisIOS;
+			};
+			name = Debug;
+		};
+		C54088EC25603A84004C1682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UGWP72DX9D;
+				INFOPLIST_FILE = LoginSceneUITest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.LoginSceneUITest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -828,6 +952,15 @@
 			buildConfigurations = (
 				C53C3DC62533220100ACB66D /* Debug */,
 				C53C3DC72533220100ACB66D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C54088EA25603A84004C1682 /* Build configuration list for PBXNativeTarget "LoginSceneUITest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C54088EB25603A84004C1682 /* Debug */,
+				C54088EC25603A84004C1682 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

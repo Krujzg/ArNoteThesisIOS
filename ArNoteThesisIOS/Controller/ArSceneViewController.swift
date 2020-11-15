@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  ArNoteThesisIOS
-//
-//  Created by Gergo on 2020. 10. 11..
-//
-
 import UIKit
 import SceneKit
 import ARKit
@@ -19,6 +12,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     @IBOutlet var controllView: UIView!
     @IBOutlet var MessageBox: UITextView!
     
+    let firebaseRepository = FireBaseRepository()
     var pickerData: [String] = [String]()
     var type : String = "Normal"
     var textNode = SCNNode()
@@ -77,7 +71,6 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
                 hitNode = self.sceneView.hitTest(sender.location(in: self.sceneView),
                                                      options: nil)
                 self.selectedNode = hitNode.first?.node
-                print(self.selectedNode)
                 if selectedNode != nil {
                     self.PCoordx = (hitNode.first?.worldCoordinates.x)!
                     self.PCoordy = (hitNode.first?.worldCoordinates.y)!
@@ -221,10 +214,16 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     
     private func saveMyNoteDataToDb()
     {
-        let myNoteDb = Database.database().reference().child("MyNotes")
         let dictionary = createDbFormat()
-        
-        myNoteDb.child(String(nextShortCode)).setValue(dictionary)
+        firebaseRepository.saveMyNoteDataToDb(nextShortCode: nextShortCode, dictionary: dictionary, completionHandler:{ (success) -> Void in
+            if success { self.textMessageTextField.text = "" }
+            else {
+                let alert = UIAlertController(title: "Szerver hiba", message: "Nem elérhető a szerver", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Oké", style: UIAlertAction.Style.default, handler: nil))
+            }
+            
+        })
+        /*myNoteDb.child(String(nextShortCode)).setValue(dictionary)
         {
             (error,reference) in
             if error != nil{
@@ -237,12 +236,21 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
                 print("Successful save")
                 self.textMessageTextField.text = ""
             }
-        }
+        }*/
     }
     
     private func getNextShortCodeFromTheDb(textGeometry: SCNGeometry, hitResult: ARHitTestResult)
     {
-        let shortCodeDb = Database.database().reference().child("ShortCode")
+        firebaseRepository.getNextShortCodeFromTheDb(completionHandler:{ (success, nextShortCode) -> Void in
+            
+            if success
+            {
+                self.nextShortCode = nextShortCode
+                self.saveMyNoteDataToDb()
+                self.addNodeToTheScene(textGeometry: textGeometry, hitResult: hitResult)
+            }
+        })
+        /*let shortCodeDb = Database.database().reference().child("ShortCode")
             
         shortCodeDb.observe(.value) { (snapshot) in
             let snapshotValue = snapshot.value as? NSDictionary
@@ -253,7 +261,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
             shortCodeDb.child("code").setValue(self.nextShortCode)
             self.saveMyNoteDataToDb()
         })
-        addNodeToTheScene(textGeometry: textGeometry, hitResult: hitResult)
+        addNodeToTheScene(textGeometry: textGeometry, hitResult: hitResult)*/
     }
     
     private func addTextAfterResolvedPressed(at hitResult: ARHitTestResult)
@@ -264,7 +272,15 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     
     private func getTheChoosenShortCodeFromTheDb(at hitResult: ARHitTestResult)
     {
-        let myNotesDb = Database.database().reference().child("MyNotes")
+        firebaseRepository.getTheChoosenShortCodeFromTheDb(completionHandler:{ (success, dictionary) -> Void in
+            if success
+            {
+                let choosenNodeText = dictionary["textmessage"] as! String
+                let choosenNodeType = dictionary["type"] as! String
+                self.setDataAfterResolveAction(choosenNodeText: choosenNodeText, choosenNodeType: choosenNodeType, hitResult: hitResult)
+            }
+        })
+       /* let myNotesDb = Database.database().reference().child("MyNotes")
         var choosenNodeText = ""
         var choosenNodeType = ""
         
@@ -273,7 +289,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
             choosenNodeText = snapshotValue!["textmessage"] as! String
             choosenNodeType = snapshotValue!["type"] as! String
             self.setDataAfterResolveAction(choosenNodeText: choosenNodeText, choosenNodeType: choosenNodeType, hitResult: hitResult)
-        }
+        }*/
     }
     
     private func setDataAfterResolveAction(choosenNodeText : String, choosenNodeType : String, hitResult : ARHitTestResult)
@@ -315,13 +331,18 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         textMessageTextField.resignFirstResponder()
         return true
     }
+    
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard anchor is ARPlaneAnchor else {return}
+    }
 }
 extension Int { var degreesToRadians: Double { return Double(self) * .pi/180}}
 
 enum CategoryBitMask: Int {
-      case categoryToSelect = 2        // 010
-      case otherCategoryToSelect = 4   // 100
-      // you can add more bit masks below . . .
+      case categoryToSelect = 2
+      case otherCategoryToSelect = 4
+      
   }
 
 enum BodyType : Int {

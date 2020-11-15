@@ -11,6 +11,7 @@ target 'ArNoteThesisIOS' do
   pod 'Firebase/Database'
   pod 'SVProgressHUD'
   pod 'ChameleonFramework'
+  pod "PromiseKit"
 
   target 'ArNoteThesisIOSTests' do
     inherit! :search_paths

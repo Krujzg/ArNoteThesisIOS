@@ -204,7 +204,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="F5Z-39-xRL" userLabel="Messagebox">
-                                <rect key="frame" x="83" y="601" width="240" height="106"/>
+                                <rect key="frame" x="83" y="641" width="240" height="66"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Gks-EG-Hv4"/>
@@ -272,7 +272,7 @@
                         <viewControllerLayoutGuide type="top" id="gPf-dq-h19"/>
                         <viewControllerLayoutGuide type="bottom" id="i73-ZT-HSB"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="n2Y-Kk-fut">
+                    <view key="view" contentMode="scaleToFill" id="n2Y-Kk-fut" userLabel="loginViewBackGround">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -281,6 +281,9 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arnote_menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="IzH-jR-buD">
                                         <rect key="frame" x="99" y="63" width="192" height="190"/>
+                                        <accessibility key="accessibilityConfiguration" label="arnote_menu">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="190" id="OjI-5k-Xe1"/>
                                             <constraint firstAttribute="width" constant="192" id="v3K-Mh-caX"/>
@@ -301,6 +304,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="teszt@gmail.cím" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SaE-2n-vsB" userLabel="EmailTextField">
                                         <rect key="frame" x="0.0" y="42" width="268" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" label="EmailTextField"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="268" id="d9c-ga-oUT"/>
                                             <constraint firstAttribute="height" constant="34" id="kwV-h0-9TX"/>
@@ -323,6 +327,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="teszt123" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Alk-7y-jyk" userLabel="PasswordTextField">
                                         <rect key="frame" x="0.0" y="124" width="268" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="PasswordTextField" label="PasswordTextField"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="268" id="CiT-5U-Ph7"/>
                                             <constraint firstAttribute="height" constant="34" id="zi5-ce-HY0"/>
@@ -377,8 +382,11 @@
                                                     <action selector="logInPressed:" destination="pX7-4F-g6H" eventType="touchUpInside" id="kDK-Zt-JSb"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mE1-MM-zpl">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mE1-MM-zpl" userLabel="GoToRegistrationButton">
                                                 <rect key="frame" x="0.0" y="46" width="268" height="63"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="GoToRegistration" label="GoToRegistration">
+                                                    <bool key="isElement" value="YES"/>
+                                                </accessibility>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="63" id="5lW-LW-IgW"/>
                                                     <constraint firstAttribute="width" constant="268" id="cPP-Rq-lRw"/>
@@ -414,6 +422,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration" identifier="loginViewBackGround" label="loginViewBackGround">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="kOx-MZ-Kty" firstAttribute="top" secondItem="crc-lX-stM" secondAttribute="bottom" id="Dbg-dr-EIi"/>
                             <constraint firstAttribute="trailing" secondItem="crc-lX-stM" secondAttribute="trailing" id="IgU-X3-5HL"/>
@@ -450,7 +461,7 @@
                         <viewControllerLayoutGuide type="top" id="10P-op-rHe"/>
                         <viewControllerLayoutGuide type="bottom" id="G6u-w8-vDa"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="IGp-aD-XZg">
+                    <view key="view" contentMode="scaleToFill" id="IGp-aD-XZg" userLabel="RegistrationViewBackGround">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -461,6 +472,7 @@
                                         <rect key="frame" x="0.0" y="42" width="268" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="EmailTextFieldRegistera" label="EmailTextFieldRegistera"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -477,6 +489,7 @@
                                         <rect key="frame" x="0.0" y="124" width="268" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="PasswordTextFieldRegister" label="PasswordTextFieldRegister"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -501,6 +514,7 @@
                                         <rect key="frame" x="0.0" y="209" width="268" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="PasswordTextFieldAgainRegister" label="PasswordTextFieldAgainRegister"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -517,6 +531,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4d-EG-uiR">
                                         <rect key="frame" x="61" y="97.666666666666742" width="268" height="46"/>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <accessibility key="accessibilityConfiguration" label="Register"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="YZm-2w-PHg"/>
                                             <constraint firstAttribute="width" constant="268" id="sRA-Zs-QiF"/>
@@ -536,6 +551,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration" identifier="RegistrationViewBackGround" label="RegistrationViewBackGround">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="ieT-q4-mZ3" firstAttribute="centerX" secondItem="IGp-aD-XZg" secondAttribute="centerX" id="CVn-ld-nvT"/>
                             <constraint firstItem="ieT-q4-mZ3" firstAttribute="centerY" secondItem="IGp-aD-XZg" secondAttribute="centerY" id="VRo-QO-5oW"/>
@@ -565,7 +583,7 @@
                         <viewControllerLayoutGuide type="top" id="hUS-nB-kPd"/>
                         <viewControllerLayoutGuide type="bottom" id="vVy-4L-xGr"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yES-E8-8Qx">
+                    <view key="view" contentMode="scaleToFill" id="yES-E8-8Qx" userLabel="MenuBackgroundView">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -698,6 +716,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="0.70800548850064482" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration" label="menubackground">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="TKj-4L-Wgf" firstAttribute="centerY" secondItem="yES-E8-8Qx" secondAttribute="centerY" id="h0m-yi-JQT"/>
                             <constraint firstItem="TKj-4L-Wgf" firstAttribute="centerX" secondItem="yES-E8-8Qx" secondAttribute="centerX" id="uMv-1q-Kkm"/>

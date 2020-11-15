@@ -7,6 +7,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate  {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var passwordAgainTextField: UITextField!
+    let firebaseRepository = FireBaseRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,29 +20,27 @@ class RegisterViewController: UIViewController, UITextFieldDelegate  {
     
     @IBAction func registerPressed(_ sender: UIButton)
     {
-        if passwordTextField.text == passwordAgainTextField.text {
-            SVProgressHUD.show()
-            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) {
-                (user, error) in
-                
-                if error != nil {
-                    print(error)
-                    let alert = UIAlertController(title: "Sikertelen regisztráció", message: "Szerver hiba", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Oké", style: UIAlertAction.Style.default, handler: nil))
-                }
-                else
-                {
-                    print("Registration successful")
-                    self.performSegue(withIdentifier: "goToLogin", sender: self)
-                }
-                SVProgressHUD.dismiss()
+        SVProgressHUD.show()
+        checkIfTheRegistrationWasSuccessful()
+        SVProgressHUD.dismiss()
+    }
+    
+    private func checkIfTheRegistrationWasSuccessful()
+    {
+        if passwordTextField.text == passwordAgainTextField.text
+        {
+            firebaseRepository.registerUserIntoFireBaseAuth(email: emailTextField.text!, password: passwordTextField.text!) { (success) -> Void in
+                if success { self.performSegue(withIdentifier: "goToLogin", sender: self) }
+                else{ self.registrationAlertWindow(title: "Sikertelen regisztráció",message: "Nem megfelelő email cím!",actionTitle: "Oké") }
             }
         }
-        else{
-            print("Registration unsuccessful")
-            let alert = UIAlertController(title: "Sikertelen regisztráció", message: "A jelszavak nem egyeznek", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Oké", style: UIAlertAction.Style.default, handler: nil))
-        }
+        else { self.registrationAlertWindow(title: "Sikertelen regisztráció",message: "Nem egyeznek meg a jelszavak!",actionTitle: "Oké") }
+    }
+    
+    private func registrationAlertWindow(title : String, message : String, actionTitle: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: actionTitle, style: UIAlertAction.Style.default, handler: nil))
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

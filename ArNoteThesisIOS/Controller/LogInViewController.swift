@@ -6,8 +6,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate
 {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    let firebaseRepository = FireBaseRepository()
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
@@ -17,22 +19,21 @@ class LogInViewController: UIViewController, UITextFieldDelegate
 
     @IBAction func logInPressed(_ sender: UIButton) {
         SVProgressHUD.show()
-        
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!)
-        {
-            (user, error) in
-            if error != nil
+        //loginWithFireBaseAuth()
+        //firebaseRepository.retrieveNotes(completionHandler:{ (success, myNote) -> Void in if success { self.setTableViewData(myNote: myNote)}  })
+        firebaseRepository.loginWithFireBaseAuth(email: emailTextField.text!, password: passwordTextField.text!) { (success) -> Void in
+            if success
             {
-                print(error!)
+                self.performSegue(withIdentifier: "goToMainMenu", sender: self)
+                
+            }
+            else{
                 let alert = UIAlertController(title: "Helytelen bejelentkezés", message: "Hibás felhasználónév vagy jelszó", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Oké", style: UIAlertAction.Style.default, handler: nil))
             }
-            else{
-                print("login successful")
-                self.performSegue(withIdentifier: "goToMainMenu", sender: self)
-            }
             SVProgressHUD.dismiss()
         }
+       
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
