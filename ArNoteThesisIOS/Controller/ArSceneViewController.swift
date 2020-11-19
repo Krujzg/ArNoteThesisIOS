@@ -12,7 +12,6 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     @IBOutlet var controllView: UIView!
     @IBOutlet var MessageBox: UITextView!
     
-    let firebaseRepository = FireBaseRepository()
     var pickerData: [String] = [String]()
     var type : String = "Normal"
     var textNode = SCNNode()
@@ -27,6 +26,10 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     var PCoordy: Float = 0.0
     var PCoordz: Float = 0.0
     let kMovingLengthPerLoop: CGFloat = 0.5
+    
+    private let dbChildNameDtForPlacement = "Placement"
+    private let dbChildNameDtForDeletion = "Deletion"
+    private let dbChildNameDtForCustomization = "Customization"
      
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,20 +160,40 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     
     private func setMyNoteAppearance(chooseNodeText: String, choosenNodeType: String) -> SCNGeometry
     {
+        let start = DispatchTime.now()
         let textGeometry = SCNText(string: chooseNodeText, extrusionDepth: 1.0)
+        
         if choosenNodeType == "Normal" {textGeometry.firstMaterial?.diffuse.contents = UIColor.black}
         else if choosenNodeType == "Warning"{textGeometry.firstMaterial?.diffuse.contents = UIColor.yellow}
         else{textGeometry.firstMaterial?.diffuse.contents = UIColor.red}
+        
+        let end = DispatchTime.now()
+        let dtEllapsedNanoSeconds  = end.uptimeNanoseconds - start.uptimeNanoseconds
+        saveMeasureMentTimeIntoDb(dbChildName: dbChildNameDtForCustomization,dtEllapsedNanoSeconds: dtEllapsedNanoSeconds)
         return textGeometry
     }
     
     private func addNodeToTheScene(textGeometry : SCNGeometry, hitResult : ARHitTestResult)
     {
+        let start = DispatchTime.now()
+        
         textNode = SCNNode(geometry: textGeometry)
         textNode.position = SCNVector3(x: hitResult.worldTransform.columns.3.x, y: hitResult.worldTransform.columns.3.y + 0.01, z: hitResult.worldTransform.columns.3.z)
         textNode.scale = SCNVector3(0.01, 0.01, 0.01)
         sceneView.scene.rootNode.addChildNode(textNode)
+        
+        let end = DispatchTime.now()
+        let dtEllapsedNanoSeconds  = end.uptimeNanoseconds - start.uptimeNanoseconds
+        saveMeasureMentTimeIntoDb(dbChildName: dbChildNameDtForPlacement,dtEllapsedNanoSeconds: dtEllapsedNanoSeconds)
+        
         MessageBox.text = "Arnote added! Shortcode:\(String(nextShortCode-1))"
+    }
+    
+    private func saveMeasureMentTimeIntoDb(dbChildName : String,dtEllapsedNanoSeconds: UInt64)
+    {
+        let timeInterval = Double(dtEllapsedNanoSeconds) / 1_000_000_000
+        let dtDictionary = [UIDevice.current.name: String(timeInterval)] as NSDictionary
+        FireBaseRepository.shared.saveMeasurementDataIntoDb(dbChildName: dbChildName, measurementDictionary: dtDictionary )
     }
     
     /*private func addBackGroundToTheTextNode() -> SCNNode
@@ -215,7 +238,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     private func saveMyNoteDataToDb()
     {
         let dictionary = createDbFormat()
-        firebaseRepository.saveMyNoteDataToDb(nextShortCode: nextShortCode, dictionary: dictionary, completionHandler:{ (success) -> Void in
+        FireBaseRepository.shared.saveMyNoteDataToDb(nextShortCode: nextShortCode, dictionary: dictionary, completionHandler:{ (success) -> Void in
             if success { self.textMessageTextField.text = "" }
             else {
                 let alert = UIAlertController(title: "Szerver hiba", message: "Nem elérhető a szerver", preferredStyle: UIAlertController.Style.alert)
@@ -241,7 +264,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     
     private func getNextShortCodeFromTheDb(textGeometry: SCNGeometry, hitResult: ARHitTestResult)
     {
-        firebaseRepository.getNextShortCodeFromTheDb(completionHandler:{ (success, nextShortCode) -> Void in
+        FireBaseRepository.shared.getNextShortCodeFromTheDb(completionHandler:{ (success, nextShortCode) -> Void in
             
             if success
             {
@@ -272,7 +295,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     
     private func getTheChoosenShortCodeFromTheDb(at hitResult: ARHitTestResult)
     {
-        firebaseRepository.getTheChoosenShortCodeFromTheDb(completionHandler:{ (success, dictionary) -> Void in
+        FireBaseRepository.shared.getTheChoosenShortCodeFromTheDb(choosenShortCode: choosenShortCode ,completionHandler:{ (success, dictionary) -> Void in
             if success
             {
                 let choosenNodeText = dictionary["textmessage"] as! String
@@ -298,7 +321,7 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         let type = choosenNodeType
         let textGeometry = setMyNoteAppearance(chooseNodeText: textmessage, choosenNodeType: type )
         addNodeToTheScene(textGeometry: textGeometry, hitResult: hitResult)
-        MessageBox.text = " \(textmessage) arnote added!"
+        //MessageBox.text = " \(textmessage) arnote added!"
     }
     
     @IBAction func apply(_ sender: UIButton)
@@ -323,7 +346,11 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
     }
     @IBAction func clearPrevNode(_ sender: UIButton)
     {
+        let start = DispatchTime.now()
         textNode.removeFromParentNode()
+        let end = DispatchTime.now()
+        let dtEllapsedNanoSeconds  = end.uptimeNanoseconds - start.uptimeNanoseconds
+        saveMeasureMentTimeIntoDb(dbChildName: dbChildNameDtForDeletion,dtEllapsedNanoSeconds: dtEllapsedNanoSeconds)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

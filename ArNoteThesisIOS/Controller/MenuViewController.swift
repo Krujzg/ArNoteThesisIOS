@@ -1,12 +1,4 @@
-//
-//  MenuViewController.swift
-//  ArNoteThesisIOS
-//
-//  Created by Gergo on 2020. 10. 11..
-//
-
 import UIKit
-import FirebaseAuth
 
 class MenuViewController : UIViewController
 {
@@ -18,13 +10,9 @@ class MenuViewController : UIViewController
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func LogoutTheUser(_ sender: UIButton) {
-        do
-        {
-         try Auth.auth().signOut()
-        }
-        catch {print(error)}
-        
+    @IBAction func LogoutTheUser(_ sender: UIButton)
+    {
+        FireBaseRepository.shared.logoutTheUser()
         guard navigationController?.popToRootViewController(animated: true) != nil
         else
         {

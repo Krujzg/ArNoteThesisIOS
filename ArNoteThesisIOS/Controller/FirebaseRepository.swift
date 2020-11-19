@@ -1,10 +1,13 @@
 import Foundation
 import Firebase
 
-class FireBaseRepository
+class FireBaseRepository : NSObject
 {
-    let myNoteDb = Database.database().reference().child("MyNotes")
+    static let shared = FireBaseRepository()
+    let myNotesDb = Database.database().reference().child("MyNotes")
     let shortCodeDb = Database.database().reference().child("ShortCode")
+    let measurementsDb = Database.database().reference().child("Measurements")
+    var sfbShortCode : String = "1"
     
     func retrieveNotes(completionHandler: @escaping CompletionHandlerForRetrievingNote)
     {
@@ -21,6 +24,7 @@ class FireBaseRepository
         let type = snapshotValue["type"] as! String
         let date = snapshotValue["date"] as! String
         let textMessage = snapshotValue["textmessage"] as! String
+        self.sfbShortCode = shortcode
         return MyNote(
             shortCode: shortcode,
             type: type,
@@ -48,9 +52,18 @@ class FireBaseRepository
         }
     }
     
+    func logoutTheUser()
+    {
+        do
+        {
+         try Auth.auth().signOut()
+        }
+        catch {print(error)}
+    }
+    
     func saveMyNoteDataToDb(nextShortCode: Int, dictionary: NSDictionary, completionHandler : @escaping CompletionHandlerForSaving)
     {
-        myNoteDb.child(String(nextShortCode)).setValue(dictionary)
+        myNotesDb.child(String(nextShortCode)).setValue(dictionary)
         {
             (error,reference) in
             if error != nil {completionHandler(false)}
@@ -62,7 +75,7 @@ class FireBaseRepository
     {
         shortCodeDb.observe(.value) { (snapshot) in
             let snapshotValue = snapshot.value as? NSDictionary
-            let nextShortCode = snapshotValue!["code"] as! Int
+            var nextShortCode = snapshotValue!["code"] as! Int
             nextShortCode = nextShortCode+1
             self.setNextShortCodeIntoDb(nextShortCode: nextShortCode)
             completionHandler(true,nextShortCode)
@@ -73,12 +86,17 @@ class FireBaseRepository
         self.shortCodeDb.child("code").setValue(nextShortCode)
     }
     
-    func getTheChoosenShortCodeFromTheDb(completionHandler : @escaping CompletionHandlerForGetChoosenArNote)
+    func getTheChoosenShortCodeFromTheDb(choosenShortCode : String, completionHandler : @escaping CompletionHandlerForGetChoosenArNote)
     {
         myNotesDb.child(choosenShortCode).observe(.value) { (snapshot) in
             let dictionary = snapshot.value as? NSDictionary
-            completionHandler(true,dictionary)
+            completionHandler(true,dictionary!)
         }
+    }
+    
+    func saveMeasurementDataIntoDb(dbChildName: String,measurementDictionary : NSDictionary)
+    {
+        self.measurementsDb.child("Measurements").child(dbChildName).child(self.sfbShortCode).setValue(measurementDictionary)
     }
 }
 

@@ -6,7 +6,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate
 {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    let firebaseRepository = FireBaseRepository()
     
     override func viewDidLoad()
     {
@@ -21,7 +20,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate
         SVProgressHUD.show()
         //loginWithFireBaseAuth()
         //firebaseRepository.retrieveNotes(completionHandler:{ (success, myNote) -> Void in if success { self.setTableViewData(myNote: myNote)}  })
-        firebaseRepository.loginWithFireBaseAuth(email: emailTextField.text!, password: passwordTextField.text!) { (success) -> Void in
+        FireBaseRepository.shared.loginWithFireBaseAuth(email: emailTextField.text!, password: passwordTextField.text!) { (success) -> Void in
             if success
             {
                 self.performSegue(withIdentifier: "goToMainMenu", sender: self)

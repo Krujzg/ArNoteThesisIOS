@@ -18,6 +18,7 @@ class LoginSceneUITest: XCTestCase {
     override func setUpWithError() throws {
  
         continueAfterFailure = false
+        app.launchArguments.append("UITEST")
         app.launch()
         loginPageLogo = app.images["arnote_menu"]
         emailTextField = app.textFields["EmailTextField"]
@@ -39,8 +40,8 @@ class LoginSceneUITest: XCTestCase {
     }
     func testValidLogin()
     {
-        let validEmail = "teszt@gmail.cím"
-        let validPassword = "teszt123"
+        let validEmail = "uiteszt@gmail.com"
+        let validPassword = "uiteszt123"
     
         emailTextField?.tap()
         emailTextField?.clearAndEnterText(text: validEmail)

@@ -7,7 +7,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate  {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var passwordAgainTextField: UITextField!
-    let firebaseRepository = FireBaseRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +28,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate  {
     {
         if passwordTextField.text == passwordAgainTextField.text
         {
-            firebaseRepository.registerUserIntoFireBaseAuth(email: emailTextField.text!, password: passwordTextField.text!) { (success) -> Void in
+            FireBaseRepository.shared.registerUserIntoFireBaseAuth(email: emailTextField.text!, password: passwordTextField.text!) { (success) -> Void in
                 if success { self.performSegue(withIdentifier: "goToLogin", sender: self) }
                 else{ self.registrationAlertWindow(title: "Sikertelen regisztráció",message: "Nem megfelelő email cím!",actionTitle: "Oké") }
             }

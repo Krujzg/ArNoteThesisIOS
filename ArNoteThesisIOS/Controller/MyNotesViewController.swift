@@ -5,9 +5,7 @@ import ChameleonFramework
 class MyNotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     var myNotesArray : [MyNote] = [MyNote]()
-    let firebaseRepository = FireBaseRepository()
     lazy var backgroundThread : DispatchQueue = { return DispatchQueue.init(label: "background.queue" , attributes: .concurrent) }()
-    
     
     @IBOutlet var myNotesTableView: UITableView!
 
@@ -20,7 +18,7 @@ class MyNotesViewController: UIViewController, UITableViewDelegate, UITableViewD
         myNotesTableView.register(UINib(nibName: "CustomMyNotesCell", bundle: nil), forCellReuseIdentifier: "MyNoteCell")
         
         configureTableView()
-        firebaseRepository.retrieveNotes(completionHandler:{ (success, myNote) -> Void in if success { self.setTableViewData(myNote: myNote)}  })
+        FireBaseRepository.shared.retrieveNotes(completionHandler:{ (success, myNote) -> Void in if success { self.setTableViewData(myNote: myNote)}  })
     }
     
     func configureTableView()
