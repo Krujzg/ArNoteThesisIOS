@@ -116,15 +116,19 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
             let tapLocation = sender.location(in: sceneView)
             let hitTestResults = sceneView.hitTest(tapLocation, types: .featurePoint)
             if let hitResult = hitTestResults.first{
-                if isResolvedPressed
+                if(sender.state == .ended)
                 {
-                    addTextAfterResolvedPressed(at: hitResult)
-                    isResolvedPressed = false
+                    if isResolvedPressed
+                    {
+                        addTextAfterResolvedPressed(at: hitResult)
+                        isResolvedPressed = false
+                    }
+                    else
+                    {
+                        addText(at: hitResult)}
+                    }
                 }
-                else
-                {
-                    addText(at: hitResult)}
-                }
+
         }
     }
     
@@ -186,14 +190,19 @@ class ArSceneViewController: UIViewController, ARSCNViewDelegate, UIPickerViewDe
         let dtEllapsedNanoSeconds  = end.uptimeNanoseconds - start.uptimeNanoseconds
         saveMeasureMentTimeIntoDb(dbChildName: dbChildNameDtForPlacement,dtEllapsedNanoSeconds: dtEllapsedNanoSeconds)
         
-        MessageBox.text = "Arnote added! Shortcode:\(String(nextShortCode-1))"
+        MessageBox.text = "Arnote added! Shortcode:\(String(nextShortCode))"
     }
     
     private func saveMeasureMentTimeIntoDb(dbChildName : String,dtEllapsedNanoSeconds: UInt64)
     {
         let timeInterval = Double(dtEllapsedNanoSeconds) / 1_000_000_000
-        let dtDictionary = [UIDevice.current.name: String(timeInterval)] as NSDictionary
-        FireBaseRepository.shared.saveMeasurementDataIntoDb(dbChildName: dbChildName, measurementDictionary: dtDictionary )
+        FireBaseRepository.shared.saveMeasurementDataIntoDb(dbChildName: dbChildName, measurement: String(timeInterval), completionHandler:{ (success) -> Void in
+            if !success
+            {
+                let alert = UIAlertController(title: "Szerver hiba", message: "Nem elérhető a szerver", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Oké", style: UIAlertAction.Style.default, handler: nil))
+            }
+        })
     }
     
     /*private func addBackGroundToTheTextNode() -> SCNNode

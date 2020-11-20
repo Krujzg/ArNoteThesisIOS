@@ -7,7 +7,7 @@ class FireBaseRepository : NSObject
     let myNotesDb = Database.database().reference().child("MyNotes")
     let shortCodeDb = Database.database().reference().child("ShortCode")
     let measurementsDb = Database.database().reference().child("Measurements")
-    var sfbShortCode : String = "1"
+    var sfbShortCodeInt : Int = 1
     
     func retrieveNotes(completionHandler: @escaping CompletionHandlerForRetrievingNote)
     {
@@ -24,7 +24,6 @@ class FireBaseRepository : NSObject
         let type = snapshotValue["type"] as! String
         let date = snapshotValue["date"] as! String
         let textMessage = snapshotValue["textmessage"] as! String
-        self.sfbShortCode = shortcode
         return MyNote(
             shortCode: shortcode,
             type: type,
@@ -73,13 +72,14 @@ class FireBaseRepository : NSObject
     
     func getNextShortCodeFromTheDb(completionHandler : @escaping CompletionHandlerForGetNextShortCode)
     {
-        shortCodeDb.observe(.value) { (snapshot) in
+        shortCodeDb.observeSingleEvent(of: .value, with: { (snapshot) in
             let snapshotValue = snapshot.value as? NSDictionary
             var nextShortCode = snapshotValue!["code"] as! Int
+            self.sfbShortCodeInt = nextShortCode
+            completionHandler(true,nextShortCode)
             nextShortCode = nextShortCode+1
             self.setNextShortCodeIntoDb(nextShortCode: nextShortCode)
-            completionHandler(true,nextShortCode)
-        }
+        })
     }
     private func setNextShortCodeIntoDb(nextShortCode: Int)
     {
@@ -94,9 +94,13 @@ class FireBaseRepository : NSObject
         }
     }
     
-    func saveMeasurementDataIntoDb(dbChildName: String,measurementDictionary : NSDictionary)
+    func saveMeasurementDataIntoDb(dbChildName: String,measurement: String, completionHandler : @escaping CompletionHandlerForSaving)
     {
-        self.measurementsDb.child("Measurements").child(dbChildName).child(self.sfbShortCode).setValue(measurementDictionary)
+        var sfbShortCode : Int = sfbShortCodeInt
+        if dbChildName == "Customization" {sfbShortCode = sfbShortCodeInt + 1}
+        let devicename = UIDevice.current.name
+        Database.database().reference().child(devicename).child("Measurement").child(dbChildName).child(String(sfbShortCode)).setValue(measurement)
+        completionHandler(true)
     }
 }
 
