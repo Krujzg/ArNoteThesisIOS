@@ -6,7 +6,6 @@ class FireBaseRepository : NSObject
     static let shared = FireBaseRepository()
     let myNotesDb = Database.database().reference().child("MyNotes")
     let shortCodeDb = Database.database().reference().child("ShortCode")
-    let measurementsDb = Database.database().reference().child("Measurements")
     var sfbShortCodeInt : Int = 1
     
     func retrieveNotes(completionHandler: @escaping CompletionHandlerForRetrievingNote)
