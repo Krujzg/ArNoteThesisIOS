@@ -1,7 +1,7 @@
 import XCTest
 
-class LoginSceneUiTests: XCTestCase
-{
+class ArNoteThesisIOSUITests: XCTestCase {
+
     let app = XCUIApplication()
     var loginPageLogo : XCUIElement? = nil
     var emailTextField : XCUIElement? = nil
@@ -11,56 +11,50 @@ class LoginSceneUiTests: XCTestCase
     var loginButton : XCUIElement? = nil
     var LoginPageTitle : XCUIElement? = nil
     var GoToRegisterPageLoginButton : XCUIElement? = nil
-    var menuBackground: XCUIElement? = nil
     var LoginPageEmailTitle: XCUIElement? = nil
     var LoginPagePasswordTitle :XCUIElement? = nil
-    var registrationViewBackground :XCUIElement? = nil
-    var loginViewBackGround :XCUIElement? = nil
+    var RegisterPageRegisterButton : XCUIElement? = nil
+    var MenuArNoteButton : XCUIElement? = nil
     
-    override func setUpWithError() throws
-    {
+    override func setUpWithError() throws {
+ 
         continueAfterFailure = false
-        //app.launchArguments.append("UITEST")
         app.launch()
         loginPageLogo = app.images["arnote_menu"]
-        let emailTextFieldidentifyer = app.textFields.matching(identifier: "EmailTextFieldLogin")
-        
-        if emailTextFieldidentifyer.count > 0 {
-            emailTextField = emailTextFieldidentifyer.element(boundBy: 0)
-        }
-        
+        emailTextField = app.textFields["EmailTextFieldLogin"]
         passwordTextField = app.secureTextFields["PasswordTextField"]
         returnButton = app/*@START_MENU_TOKEN@*/.buttons["Return"]/*[[".keyboards",".buttons[\"return\"]",".buttons[\"Return\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
         pasteMenuItem = app.menuItems["Paste"]
-        loginButton = app.buttons["Login"]
+        loginButton = app.buttons["LoginButton"]
         LoginPageTitle = app.navigationBars["Login"].staticTexts["Login"]
         GoToRegisterPageLoginButton = app.buttons["GoToRegistration"]
-        menuBackground = app.otherElements["menubackground"]
         LoginPageEmailTitle = app.staticTexts["Email"]
         LoginPagePasswordTitle = app.staticTexts["Password"]
-        registrationViewBackground = app.otherElements["RegistrationViewBackGround"]
-        loginViewBackGround = app.otherElements["loginViewBackGround"]
+        RegisterPageRegisterButton = app.buttons["EmailTextFieldRegister"]
+        MenuArNoteButton = app.buttons["arNoteButton"]
     }
+
+    override func tearDownWithError() throws{}
     
     func testValidLogin()
     {
-        let validEmail = "uiteszt@gmail.com"
-        let validPassword = "uiteszt123"
-                
-                                                                                
+        let validEmail = "teszt@gmail.cím"
+        let validPassword = "teszt123"
+            
         emailTextField?.tap()
         emailTextField?.clearAndEnterText(text: validEmail)
         returnButton?.tap()
-                                
+        
         UIPasteboard.general.string = validPassword
         
         passwordTextField?.tap()
         passwordTextField?.doubleTap()
         pasteMenuItem?.tap()
+        returnButton?.tap()
         
         loginButton?.tap()
         let predicate = NSPredicate(format: "exists == 1")
-        expectation(for: predicate, evaluatedWith: menuBackground, handler: nil)
+        expectation(for: predicate, evaluatedWith: MenuArNoteButton, handler: nil)
         waitForExpectations(timeout: 3, handler: nil)
     }
     
@@ -78,18 +72,11 @@ class LoginSceneUiTests: XCTestCase
         passwordTextField?.tap()
         passwordTextField?.doubleTap()
         pasteMenuItem?.tap()
+        returnButton?.tap()
         
         loginButton?.tap()
         let predicate = NSPredicate(format: "exists == 0")
-        expectation(for: predicate, evaluatedWith: menuBackground, handler: nil)
-        waitForExpectations(timeout: 3, handler: nil)
-    }
-    
-    func testIfRegistrationButtonCanNavigatoToRegistrationView()
-    {
-        GoToRegisterPageLoginButton?.tap()
-        let predicate = NSPredicate(format: "exists == 1")
-        expectation(for: predicate, evaluatedWith: registrationViewBackground, handler: nil)
+        expectation(for: predicate, evaluatedWith: MenuArNoteButton, handler: nil)
         waitForExpectations(timeout: 3, handler: nil)
     }
     
@@ -139,8 +126,16 @@ class LoginSceneUiTests: XCTestCase
         XCTAssert(GoToRegisterPageLoginButton!.exists)
         XCTAssert(GoToRegisterPageLoginButton!.isEnabled)
     }
+    
+    func testIfEmailTitleTextIsEmail()
+    {
+        XCTAssertEqual(LoginPageEmailTitle?.label, "Email")
+    }
+    func testIfPasswordTitleTextIsPassword()
+    {
+        XCTAssertEqual(LoginPagePasswordTitle?.label, "Password")
+    }
 }
-
 extension XCUIElement{
     func clearAndEnterText(text : String)
     {

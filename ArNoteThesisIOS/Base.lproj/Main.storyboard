@@ -34,6 +34,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARNOTE TYPE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXe-2m-xte">
                                         <rect key="frame" x="20" y="222.00000000000003" width="126" height="38.999999999999972"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ArNoteTypeTitle"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="39" id="0gT-pI-TAm"/>
                                             <constraint firstAttribute="width" constant="126" id="3Ge-3s-ZgM"/>
@@ -45,6 +46,9 @@
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pg-yz-0wt">
                                         <rect key="frame" x="160" y="222.00000000000003" width="147" height="45.999999999999972"/>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ArNoteTypePicker">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="LzA-pZ-XrV"/>
                                             <constraint firstAttribute="width" constant="147" id="eFX-ti-i1H"/>
@@ -52,6 +56,7 @@
                                     </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARNOTE TEXT:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4P-QS-dCp">
                                         <rect key="frame" x="104" y="304" width="119" height="38"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ArNoteTextTitle"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="OVl-lB-yhJ"/>
                                             <constraint firstAttribute="width" constant="119" id="Oyg-5c-bco"/>
@@ -62,6 +67,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wX-VD-RT9">
                                         <rect key="frame" x="20" y="405" width="114" height="42"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="CancelButton"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="elh-VI-wrJ"/>
                                             <constraint firstAttribute="width" constant="114" id="n1Y-KY-kqM"/>
@@ -75,6 +81,7 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR ACTIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tU-dT-idx">
                                         <rect key="frame" x="110" y="8" width="106" height="32"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ArActionsTitle"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="Ngg-fg-M3j"/>
                                             <constraint firstAttribute="width" constant="106" id="RtM-KP-huE"/>
@@ -86,6 +93,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3m-W3-Vyp">
                                         <rect key="frame" x="20" y="58" width="125" height="30"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="resolveButton"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="125" id="Vkj-75-6sj"/>
                                             <constraint firstAttribute="height" constant="30" id="ocz-gf-MyA"/>
@@ -100,6 +108,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b45-ta-Vde">
                                         <rect key="frame" x="182" y="58" width="125" height="30"/>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="clearButton"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="125" id="lud-64-WTD"/>
                                             <constraint firstAttribute="height" constant="30" id="rz8-aB-3PI"/>
@@ -114,6 +123,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x2F-N2-Gmn" userLabel="arTextField">
                                         <rect key="frame" x="20" y="363" width="287" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ArNoteTextTextField"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="VYp-Ca-dd3"/>
                                             <constraint firstAttribute="width" constant="287" id="YfW-go-pf9"/>
@@ -124,6 +134,7 @@
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESOLVE CODE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rp-md-PyY">
                                         <rect key="frame" x="20" y="133.66666666666666" width="126" height="20.333333333333343"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ResolveCodeTitle"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="126" id="avS-cj-Tf1"/>
                                             <constraint firstAttribute="height" constant="20.329999999999998" id="hNY-tl-vd7"/>
@@ -134,6 +145,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XyU-gI-Mf1">
                                         <rect key="frame" x="193" y="405" width="114" height="42"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ApplyButton"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="114" id="72W-zj-vHI"/>
                                             <constraint firstAttribute="height" constant="42" id="QNp-xD-DE4"/>
@@ -148,6 +160,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9lY-3K-SPN" userLabel="resolveTextField">
                                         <rect key="frame" x="160" y="127.00000000000003" width="147" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ResolveCodeTextField"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="147" id="Wf5-cX-327"/>
                                             <constraint firstAttribute="height" constant="34" id="bO0-ik-yy8"/>
@@ -301,7 +314,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOx-MZ-Kty" userLabel="loginFieldsContainer">
                                 <rect key="frame" x="61.666666666666657" y="316" width="267" height="158"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="teszt@gmail.cím" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SaE-2n-vsB" userLabel="EmailTextField">
+                                    <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="EmailTextFieldLogin" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="teszt@gmail.cím" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SaE-2n-vsB" userLabel="EmailTextFieldLogin">
                                         <rect key="frame" x="0.0" y="42" width="268" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" identifier="EmailTextFieldLogin" label="EmailTextFieldLogin">
@@ -373,6 +386,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTo-xX-hcH">
                                                 <rect key="frame" x="0.0" y="0.0" width="268" height="46"/>
                                                 <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="LoginButton" label="LoginButton"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="41f-7H-e10"/>
                                                     <constraint firstAttribute="width" constant="268" id="9V8-u4-aGL"/>
@@ -425,7 +439,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <accessibility key="accessibilityConfiguration" identifier="loginViewBackGround" label="loginViewBackGround">
-                            <bool key="isElement" value="YES"/>
+                            <bool key="isElement" value="NO"/>
                         </accessibility>
                         <constraints>
                             <constraint firstItem="kOx-MZ-Kty" firstAttribute="top" secondItem="crc-lX-stM" secondAttribute="bottom" id="Dbg-dr-EIi"/>
@@ -474,7 +488,7 @@
                                         <rect key="frame" x="0.0" y="42" width="268" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="EmailTextFieldRegistera" label="EmailTextFieldRegistera"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="EmailTextFieldRegister" label="EmailTextFieldRegister"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -483,6 +497,7 @@
                                         <rect key="frame" x="0.0" y="88" width="74" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="PasswordTitleRegister" label="PasswordTitleRegister"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -500,6 +515,7 @@
                                         <rect key="frame" x="0.0" y="8" width="41" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="EmailTitleRegister" label="EmailTitleRegister"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -508,6 +524,7 @@
                                         <rect key="frame" x="0.0" y="172.99999999999983" width="119" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="PasswordAgainTitleRegister" label="PasswordAgainTitleRegister"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -533,7 +550,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4d-EG-uiR">
                                         <rect key="frame" x="61" y="97.666666666666742" width="268" height="46"/>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>
-                                        <accessibility key="accessibilityConfiguration" label="Register"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="RegisterButton" label="RegisterButton"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="YZm-2w-PHg"/>
                                             <constraint firstAttribute="width" constant="268" id="sRA-Zs-QiF"/>
@@ -554,7 +571,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <accessibility key="accessibilityConfiguration" identifier="RegistrationViewBackGround" label="RegistrationViewBackGround">
-                            <bool key="isElement" value="YES"/>
+                            <bool key="isElement" value="NO"/>
                         </accessibility>
                         <constraints>
                             <constraint firstItem="ieT-q4-mZ3" firstAttribute="centerX" secondItem="IGp-aD-XZg" secondAttribute="centerX" id="CVn-ld-nvT"/>
@@ -596,9 +613,10 @@
                                         <rect key="frame" x="8" y="8" width="138" height="190"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKM-v1-JIe" userLabel="ArNoteButton">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKM-v1-JIe">
                                                 <rect key="frame" x="8" y="7" width="122" height="107"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="arNoteButton" label="arNoteButton"/>
                                                 <state key="normal" title="Button" image="arnote_menu.png"/>
                                                 <connections>
                                                     <segue destination="BV1-FR-VrT" kind="show" identifier="goToArNoteScene" id="3PV-QU-0MR"/>
@@ -607,6 +625,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AR Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvT-Qb-xjf">
                                                 <rect key="frame" x="38" y="123.00000000000003" width="63" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="arNoteTitle"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -615,6 +634,7 @@
                                                 <rect key="frame" x="0.0" y="136.00000000000003" width="138" height="54"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" red="0.40779560799999998" green="0.40787053109999999" blue="0.40779092909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="arNoteDesc"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -626,9 +646,12 @@
                                         <rect key="frame" x="169" y="8" width="138" height="190"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLi-Je-1ye" userLabel="MyNotesButton">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLi-Je-1ye">
                                                 <rect key="frame" x="8" y="7" width="122" height="107"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="myNoteButton" label="myNoteButton">
+                                                    <bool key="isElement" value="YES"/>
+                                                </accessibility>
                                                 <state key="normal" image="mynotes_menu.jpg"/>
                                                 <connections>
                                                     <segue destination="4Va-H9-JVK" kind="show" identifier="gotoMyNotes" id="d5h-bD-Ytl"/>
@@ -637,6 +660,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrH-Md-799">
                                                 <rect key="frame" x="32" y="123.00000000000003" width="73" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="myNotesTitle"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -645,6 +669,7 @@
                                                 <rect key="frame" x="0.0" y="152.00000000000003" width="138" height="12"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" red="0.40779560799999998" green="0.40787053109999999" blue="0.40779092909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="myNotesDesc"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -655,8 +680,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hg3-9j-bjh" userLabel="Logout">
                                         <rect key="frame" x="89" y="215" width="138" height="190"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2M-BE-N97" userLabel="MyNotesButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2M-BE-N97">
                                                 <rect key="frame" x="7.9999999999999858" y="7" width="122.00000000000001" height="107"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="logoutButton" label="logoutButton"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="107" id="cs3-xc-qBb"/>
                                                     <constraint firstAttribute="width" constant="122" id="sXa-KB-neI"/>
@@ -668,6 +694,7 @@
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQj-z3-wzf">
                                                 <rect key="frame" x="31.999999999999986" y="122.99999999999994" width="73" height="21"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="logoutTitle"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="73" id="Oif-fT-vWe"/>
                                                     <constraint firstAttribute="height" constant="21" id="aV3-VR-MfU"/>
@@ -679,6 +706,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout from the application" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oC-AJ-0Lg">
                                                 <rect key="frame" x="0.0" y="151.99999999999994" width="138" height="12"/>
                                                 <color key="tintColor" red="0.40779560799999998" green="0.40787053109999999" blue="0.40779092909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="logoutDesc" label="logoutDesc"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="nYg-J3-P06"/>
                                                     <constraint firstAttribute="width" constant="138" id="zaD-bf-xuJ"/>
@@ -719,7 +747,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="0.70800548850064482" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <accessibility key="accessibilityConfiguration" label="menubackground">
-                            <bool key="isElement" value="YES"/>
+                            <bool key="isElement" value="NO"/>
                         </accessibility>
                         <constraints>
                             <constraint firstItem="TKj-4L-Wgf" firstAttribute="centerY" secondItem="yES-E8-8Qx" secondAttribute="centerY" id="h0m-yi-JQT"/>
@@ -787,7 +815,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="d7X-x5-f9U"/>
         <segue reference="9XJ-7A-5Hr"/>
     </inferredMetricsTieBreakers>
     <resources>

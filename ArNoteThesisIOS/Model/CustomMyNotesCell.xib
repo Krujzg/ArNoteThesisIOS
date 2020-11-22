@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,12 +12,13 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyNoteCell" rowHeight="136" id="YLR-7u-EjY" userLabel="MyNotesCell" customClass="MyNotesCellTableViewCell" customModule="ArNoteThesisIOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="136"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YLR-7u-EjY" id="7zh-1f-aKK" userLabel="cellBackGround">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="YLR-7u-EjY" id="7zh-1f-aKK" userLabel="cellBackGround">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="136"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shortcode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsW-hf-zdr" userLabel="ShortcodeTitle">
                         <rect key="frame" x="16" y="11" width="85" height="21"/>
+                        <accessibility key="accessibilityConfiguration" identifier="ShortcodeTitle"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="85" id="Asu-vB-51m"/>
                             <constraint firstAttribute="height" constant="21" id="HED-us-b3f"/>
@@ -30,6 +31,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPl-Lz-NdE" userLabel="TypeTitle">
                         <rect key="frame" x="16" y="40" width="62" height="21"/>
+                        <accessibility key="accessibilityConfiguration" identifier="TypeTitle"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="62" id="S47-Kp-nDa"/>
                             <constraint firstAttribute="height" constant="21" id="ln0-hn-t39"/>
@@ -40,6 +42,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7h-DR-huH" userLabel="DateTitle">
                         <rect key="frame" x="16" y="69" width="41" height="21"/>
+                        <accessibility key="accessibilityConfiguration" identifier="DateTitle"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="F5S-Rj-nQl"/>
                             <constraint firstAttribute="width" constant="41" id="tfV-TG-G1F"/>
@@ -50,6 +53,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVG-bi-Zlb" userLabel="TextTitle">
                         <rect key="frame" x="16" y="98" width="37" height="21"/>
+                        <accessibility key="accessibilityConfiguration" identifier="TextTitle"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="37" id="509-Vn-Z5e"/>
                             <constraint firstAttribute="height" constant="21" id="fcS-pR-fOX"/>
@@ -60,6 +64,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q23-77-zIR" userLabel="shortcode">
                         <rect key="frame" x="109" y="11" width="267" height="21"/>
+                        <accessibility key="accessibilityConfiguration" identifier="shortcodeText"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="B3Y-fy-WDI"/>
                             <constraint firstAttribute="width" constant="267" id="TuO-e6-7N5"/>
@@ -70,6 +75,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znR-IO-3Wm" userLabel="type">
                         <rect key="frame" x="108" y="40" width="267" height="21"/>
+                        <accessibility key="accessibilityConfiguration" identifier="typetext"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="5I5-55-Tn1"/>
                             <constraint firstAttribute="width" constant="267" id="Hwx-74-LQv"/>
@@ -80,6 +86,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97E-Kz-1TF" userLabel="date">
                         <rect key="frame" x="108" y="69" width="267" height="21"/>
+                        <accessibility key="accessibilityConfiguration" identifier="datetext"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="267" id="XPj-eZ-1ZB"/>
                             <constraint firstAttribute="height" constant="21" id="uko-ge-jaZ"/>
@@ -90,6 +97,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmw-iA-0aY" userLabel="textMessage">
                         <rect key="frame" x="108" y="98" width="267" height="21"/>
+                        <accessibility key="accessibilityConfiguration" identifier="texttext"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="267" id="2xv-Bo-sfQ"/>
                             <constraint firstAttribute="height" constant="21" id="B4f-nd-seY"/>

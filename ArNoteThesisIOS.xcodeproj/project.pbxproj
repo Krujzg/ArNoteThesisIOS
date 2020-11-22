@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2838AB6964FBA55B9A647AC7 /* Pods_ArNoteThesisIOS_ArNoteThesisIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900F835925985BE1BD3A2057 /* Pods_ArNoteThesisIOS_ArNoteThesisIOSUITests.framework */; };
 		543E0FB31474EBD9E9D18093 /* Pods_ArNoteThesisIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E096DF516E771D66AC4476F /* Pods_ArNoteThesisIOS.framework */; };
-		B01BD0FBC782AA3F1AA23003 /* Pods_ArNoteThesisIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E40BA940F6C82B8870EB4D8 /* Pods_ArNoteThesisIOSTests.framework */; };
 		C504AF23253B0271002905E9 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C504AF22253B0271002905E9 /* AuthenticationServices.framework */; };
 		C504AF2B253B125E002905E9 /* CustomMyNotesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C504AF2A253B125E002905E9 /* CustomMyNotesCell.xib */; };
 		C504AF30253B12C9002905E9 /* MyNotesCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C504AF2F253B12C9002905E9 /* MyNotesCellTableViewCell.swift */; };
@@ -21,13 +19,14 @@
 		C53C3D9D2533220000ACB66D /* ArSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53C3D9C2533220000ACB66D /* ArSceneViewController.swift */; };
 		C53C3DA02533220000ACB66D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C53C3D9E2533220000ACB66D /* Main.storyboard */; };
 		C53C3DA22533220100ACB66D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C53C3DA12533220100ACB66D /* Assets.xcassets */; };
-		C53C3DB02533220100ACB66D /* ArNoteThesisIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53C3DAF2533220100ACB66D /* ArNoteThesisIOSTests.swift */; };
-		C53C3DBB2533220100ACB66D /* ArNoteThesisIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53C3DBA2533220100ACB66D /* ArNoteThesisIOSUITests.swift */; };
 		C53C3DE7253326B900ACB66D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C53C3DE6253326B900ACB66D /* GoogleService-Info.plist */; };
 		C53C3E542533485B00ACB66D /* arnote_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = C53C3E532533485A00ACB66D /* arnote_menu.png */; };
-		C54088E625603A84004C1682 /* LoginSceneUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54088E525603A84004C1682 /* LoginSceneUITest.swift */; };
-		C54088F225603B09004C1682 /* RegistrationViewUiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54088F125603B09004C1682 /* RegistrationViewUiTests.swift */; };
 		C546C7A42561A7F4003AB854 /* FireBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C546C7A32561A7F4003AB854 /* FireBaseRepository.swift */; };
+		C551C481256A5B6B003CB8D7 /* ArNoteThesisIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551C480256A5B6B003CB8D7 /* ArNoteThesisIOSUITests.swift */; };
+		C55A9501256A7CCE005BB8F6 /* RegisterUiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55A9500256A7CCE005BB8F6 /* RegisterUiTests.swift */; };
+		C55A9505256A8284005BB8F6 /* MenuUiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55A9504256A8284005BB8F6 /* MenuUiTests.swift */; };
+		C55A9509256A882E005BB8F6 /* MyNotesUiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55A9508256A882E005BB8F6 /* MyNotesUiTests.swift */; };
+		C55A950D256AA114005BB8F6 /* ArSceneViewUiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55A950C256AA114005BB8F6 /* ArSceneViewUiTests.swift */; };
 		C587014B253632690034C282 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C587014A253632690034C282 /* CustomTableViewCell.swift */; };
 		C5870150253633A80034C282 /* MyNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C587014F253633A80034C282 /* MyNotesViewController.swift */; };
 		C5870160253635510034C282 /* MyNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C587015F253635510034C282 /* MyNote.swift */; };
@@ -37,21 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C53C3DAC2533220100ACB66D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C53C3D8D253321FF00ACB66D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C53C3D942533220000ACB66D;
-			remoteInfo = ArNoteThesisIOS;
-		};
-		C53C3DB72533220100ACB66D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C53C3D8D253321FF00ACB66D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C53C3D942533220000ACB66D;
-			remoteInfo = ArNoteThesisIOS;
-		};
-		C54088E825603A84004C1682 /* PBXContainerItemProxy */ = {
+		C551C483256A5B6B003CB8D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C53C3D8D253321FF00ACB66D /* Project object */;
 			proxyType = 1;
@@ -80,19 +65,16 @@
 		C53C3D9F2533220000ACB66D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C53C3DA12533220100ACB66D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C53C3DA62533220100ACB66D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/macszerez.com/Desktop/Repositories/ArNoteThesisIOS/ArNoteThesisIOS/Supporting Files/Info.plist"; sourceTree = "<absolute>"; };
-		C53C3DAB2533220100ACB66D /* ArNoteThesisIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArNoteThesisIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C53C3DAF2533220100ACB66D /* ArNoteThesisIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArNoteThesisIOSTests.swift; sourceTree = "<group>"; };
-		C53C3DB12533220100ACB66D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C53C3DB62533220100ACB66D /* ArNoteThesisIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArNoteThesisIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C53C3DBA2533220100ACB66D /* ArNoteThesisIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArNoteThesisIOSUITests.swift; sourceTree = "<group>"; };
-		C53C3DBC2533220100ACB66D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C53C3DE6253326B900ACB66D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C53C3E532533485A00ACB66D /* arnote_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arnote_menu.png; sourceTree = "<group>"; };
-		C54088E325603A84004C1682 /* LoginSceneUITest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginSceneUITest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C54088E525603A84004C1682 /* LoginSceneUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneUITest.swift; sourceTree = "<group>"; };
-		C54088E725603A84004C1682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C54088F125603B09004C1682 /* RegistrationViewUiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewUiTests.swift; sourceTree = "<group>"; };
 		C546C7A32561A7F4003AB854 /* FireBaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseRepository.swift; sourceTree = "<group>"; };
+		C551C47E256A5B6B003CB8D7 /* ArNoteThesisIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArNoteThesisIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C551C480256A5B6B003CB8D7 /* ArNoteThesisIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArNoteThesisIOSUITests.swift; sourceTree = "<group>"; };
+		C551C482256A5B6B003CB8D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C55A9500256A7CCE005BB8F6 /* RegisterUiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUiTests.swift; sourceTree = "<group>"; };
+		C55A9504256A8284005BB8F6 /* MenuUiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUiTests.swift; sourceTree = "<group>"; };
+		C55A9508256A882E005BB8F6 /* MyNotesUiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesUiTests.swift; sourceTree = "<group>"; };
+		C55A950C256AA114005BB8F6 /* ArSceneViewUiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArSceneViewUiTests.swift; sourceTree = "<group>"; };
 		C587014A253632690034C282 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		C587014F253633A80034C282 /* MyNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesViewController.swift; sourceTree = "<group>"; };
 		C587015F253635510034C282 /* MyNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyNote.swift; path = ../Controller/MyNote.swift; sourceTree = "<group>"; };
@@ -114,23 +96,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C53C3DA82533220100ACB66D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B01BD0FBC782AA3F1AA23003 /* Pods_ArNoteThesisIOSTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C53C3DB32533220100ACB66D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2838AB6964FBA55B9A647AC7 /* Pods_ArNoteThesisIOS_ArNoteThesisIOSUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C54088E025603A84004C1682 /* Frameworks */ = {
+		C551C47B256A5B6B003CB8D7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -144,9 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				C53C3D972533220000ACB66D /* ArNoteThesisIOS */,
-				C53C3DAE2533220100ACB66D /* ArNoteThesisIOSTests */,
-				C53C3DB92533220100ACB66D /* ArNoteThesisIOSUITests */,
-				C54088E425603A84004C1682 /* LoginSceneUITest */,
+				C551C47F256A5B6B003CB8D7 /* ArNoteThesisIOSUITests */,
 				C53C3D962533220000ACB66D /* Products */,
 				E710E38401A734577870D15A /* Pods */,
 				E464C67E4ED2EA746841241E /* Frameworks */,
@@ -157,9 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				C53C3D952533220000ACB66D /* ArNoteThesisIOS.app */,
-				C53C3DAB2533220100ACB66D /* ArNoteThesisIOSTests.xctest */,
-				C53C3DB62533220100ACB66D /* ArNoteThesisIOSUITests.xctest */,
-				C54088E325603A84004C1682 /* LoginSceneUITest.xctest */,
+				C551C47E256A5B6B003CB8D7 /* ArNoteThesisIOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,25 +139,6 @@
 				C53C3DA12533220100ACB66D /* Assets.xcassets */,
 			);
 			path = ArNoteThesisIOS;
-			sourceTree = "<group>";
-		};
-		C53C3DAE2533220100ACB66D /* ArNoteThesisIOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				C53C3DAF2533220100ACB66D /* ArNoteThesisIOSTests.swift */,
-				C53C3DB12533220100ACB66D /* Info.plist */,
-			);
-			path = ArNoteThesisIOSTests;
-			sourceTree = "<group>";
-		};
-		C53C3DB92533220100ACB66D /* ArNoteThesisIOSUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C54088F125603B09004C1682 /* RegistrationViewUiTests.swift */,
-				C53C3DBA2533220100ACB66D /* ArNoteThesisIOSUITests.swift */,
-				C53C3DBC2533220100ACB66D /* Info.plist */,
-			);
-			path = ArNoteThesisIOSUITests;
 			sourceTree = "<group>";
 		};
 		C53C3DE12533261E00ACB66D /* Model */ = {
@@ -250,13 +193,17 @@
 			path = "Custom Cell";
 			sourceTree = "<group>";
 		};
-		C54088E425603A84004C1682 /* LoginSceneUITest */ = {
+		C551C47F256A5B6B003CB8D7 /* ArNoteThesisIOSUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C54088E525603A84004C1682 /* LoginSceneUITest.swift */,
-				C54088E725603A84004C1682 /* Info.plist */,
+				C551C480256A5B6B003CB8D7 /* ArNoteThesisIOSUITests.swift */,
+				C551C482256A5B6B003CB8D7 /* Info.plist */,
+				C55A9500256A7CCE005BB8F6 /* RegisterUiTests.swift */,
+				C55A9504256A8284005BB8F6 /* MenuUiTests.swift */,
+				C55A9508256A882E005BB8F6 /* MyNotesUiTests.swift */,
+				C55A950C256AA114005BB8F6 /* ArSceneViewUiTests.swift */,
 			);
-			path = LoginSceneUITest;
+			path = ArNoteThesisIOSUITests;
 			sourceTree = "<group>";
 		};
 		E464C67E4ED2EA746841241E /* Frameworks */ = {
@@ -305,61 +252,22 @@
 			productReference = C53C3D952533220000ACB66D /* ArNoteThesisIOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C53C3DAA2533220100ACB66D /* ArNoteThesisIOSTests */ = {
+		C551C47D256A5B6B003CB8D7 /* ArNoteThesisIOSUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C53C3DC22533220100ACB66D /* Build configuration list for PBXNativeTarget "ArNoteThesisIOSTests" */;
+			buildConfigurationList = C551C485256A5B6B003CB8D7 /* Build configuration list for PBXNativeTarget "ArNoteThesisIOSUITests" */;
 			buildPhases = (
-				7D7C8391CE30B1BF4F7A4B68 /* [CP] Check Pods Manifest.lock */,
-				C53C3DA72533220100ACB66D /* Sources */,
-				C53C3DA82533220100ACB66D /* Frameworks */,
-				C53C3DA92533220100ACB66D /* Resources */,
+				C551C47A256A5B6B003CB8D7 /* Sources */,
+				C551C47B256A5B6B003CB8D7 /* Frameworks */,
+				C551C47C256A5B6B003CB8D7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C53C3DAD2533220100ACB66D /* PBXTargetDependency */,
-			);
-			name = ArNoteThesisIOSTests;
-			productName = ArNoteThesisIOSTests;
-			productReference = C53C3DAB2533220100ACB66D /* ArNoteThesisIOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		C53C3DB52533220100ACB66D /* ArNoteThesisIOSUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C53C3DC52533220100ACB66D /* Build configuration list for PBXNativeTarget "ArNoteThesisIOSUITests" */;
-			buildPhases = (
-				BA2C06782BBBD2F7FF4CCFEF /* [CP] Check Pods Manifest.lock */,
-				C53C3DB22533220100ACB66D /* Sources */,
-				C53C3DB32533220100ACB66D /* Frameworks */,
-				C53C3DB42533220100ACB66D /* Resources */,
-				193EE947539CF3F02FE5BA45 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C53C3DB82533220100ACB66D /* PBXTargetDependency */,
+				C551C484256A5B6B003CB8D7 /* PBXTargetDependency */,
 			);
 			name = ArNoteThesisIOSUITests;
 			productName = ArNoteThesisIOSUITests;
-			productReference = C53C3DB62533220100ACB66D /* ArNoteThesisIOSUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		C54088E225603A84004C1682 /* LoginSceneUITest */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C54088EA25603A84004C1682 /* Build configuration list for PBXNativeTarget "LoginSceneUITest" */;
-			buildPhases = (
-				C54088DF25603A84004C1682 /* Sources */,
-				C54088E025603A84004C1682 /* Frameworks */,
-				C54088E125603A84004C1682 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C54088E925603A84004C1682 /* PBXTargetDependency */,
-			);
-			name = LoginSceneUITest;
-			productName = LoginSceneUITest;
-			productReference = C54088E325603A84004C1682 /* LoginSceneUITest.xctest */;
+			productReference = C551C47E256A5B6B003CB8D7 /* ArNoteThesisIOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -368,22 +276,14 @@
 		C53C3D8D253321FF00ACB66D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1210;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					C53C3D942533220000ACB66D = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
-					C53C3DAA2533220100ACB66D = {
-						CreatedOnToolsVersion = 12.0.1;
-						TestTargetID = C53C3D942533220000ACB66D;
-					};
-					C53C3DB52533220100ACB66D = {
-						CreatedOnToolsVersion = 12.0.1;
-						TestTargetID = C53C3D942533220000ACB66D;
-					};
-					C54088E225603A84004C1682 = {
-						CreatedOnToolsVersion = 12.1;
+					C551C47D256A5B6B003CB8D7 = {
+						CreatedOnToolsVersion = 12.2;
 						TestTargetID = C53C3D942533220000ACB66D;
 					};
 				};
@@ -402,9 +302,7 @@
 			projectRoot = "";
 			targets = (
 				C53C3D942533220000ACB66D /* ArNoteThesisIOS */,
-				C53C3DAA2533220100ACB66D /* ArNoteThesisIOSTests */,
-				C53C3DB52533220100ACB66D /* ArNoteThesisIOSUITests */,
-				C54088E225603A84004C1682 /* LoginSceneUITest */,
+				C551C47D256A5B6B003CB8D7 /* ArNoteThesisIOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -426,21 +324,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C53C3DA92533220100ACB66D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C53C3DB42533220100ACB66D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C54088E125603A84004C1682 /* Resources */ = {
+		C551C47C256A5B6B003CB8D7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -450,23 +334,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		193EE947539CF3F02FE5BA45 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		53752E7C56A0FA1A48F0C314 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -506,50 +373,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ArNoteThesisIOS/Pods-ArNoteThesisIOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7D7C8391CE30B1BF4F7A4B68 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ArNoteThesisIOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BA2C06782BBBD2F7FF4CCFEF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -570,48 +393,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C53C3DA72533220100ACB66D /* Sources */ = {
+		C551C47A256A5B6B003CB8D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C53C3DB02533220100ACB66D /* ArNoteThesisIOSTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C53C3DB22533220100ACB66D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C53C3DBB2533220100ACB66D /* ArNoteThesisIOSUITests.swift in Sources */,
-				C54088F225603B09004C1682 /* RegistrationViewUiTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C54088DF25603A84004C1682 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C54088E625603A84004C1682 /* LoginSceneUITest.swift in Sources */,
+				C55A9501256A7CCE005BB8F6 /* RegisterUiTests.swift in Sources */,
+				C551C481256A5B6B003CB8D7 /* ArNoteThesisIOSUITests.swift in Sources */,
+				C55A9505256A8284005BB8F6 /* MenuUiTests.swift in Sources */,
+				C55A950D256AA114005BB8F6 /* ArSceneViewUiTests.swift in Sources */,
+				C55A9509256A882E005BB8F6 /* MyNotesUiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C53C3DAD2533220100ACB66D /* PBXTargetDependency */ = {
+		C551C484256A5B6B003CB8D7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C53C3D942533220000ACB66D /* ArNoteThesisIOS */;
-			targetProxy = C53C3DAC2533220100ACB66D /* PBXContainerItemProxy */;
-		};
-		C53C3DB82533220100ACB66D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C53C3D942533220000ACB66D /* ArNoteThesisIOS */;
-			targetProxy = C53C3DB72533220100ACB66D /* PBXContainerItemProxy */;
-		};
-		C54088E925603A84004C1682 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C53C3D942533220000ACB66D /* ArNoteThesisIOS */;
-			targetProxy = C54088E825603A84004C1682 /* PBXContainerItemProxy */;
+			targetProxy = C551C483256A5B6B003CB8D7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -789,60 +589,13 @@
 			};
 			name = Release;
 		};
-		C53C3DC32533220100ACB66D /* Debug */ = {
+		C551C486256A5B6B003CB8D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDD1154C68F200FDE4A8970C /* Pods-ArNoteThesisIOSTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UGWP72DX9D;
-				INFOPLIST_FILE = ArNoteThesisIOSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.ArNoteThesisIOSTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArNoteThesisIOS.app/ArNoteThesisIOS";
-			};
-			name = Debug;
-		};
-		C53C3DC42533220100ACB66D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D91B9E84C440FF4E5DD82A50 /* Pods-ArNoteThesisIOSTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UGWP72DX9D;
-				INFOPLIST_FILE = ArNoteThesisIOSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.ArNoteThesisIOSTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArNoteThesisIOS.app/ArNoteThesisIOS";
-			};
-			name = Release;
-		};
-		C53C3DC62533220100ACB66D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D3B0294280CA4F56F88725B /* Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UGWP72DX9D;
 				INFOPLIST_FILE = ArNoteThesisIOSUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -856,60 +609,19 @@
 			};
 			name = Debug;
 		};
-		C53C3DC72533220100ACB66D /* Release */ = {
+		C551C487256A5B6B003CB8D7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 462E1A9D3D5B2EC657A17A9E /* Pods-ArNoteThesisIOS-ArNoteThesisIOSUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UGWP72DX9D;
 				INFOPLIST_FILE = ArNoteThesisIOSUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.ArNoteThesisIOSUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ArNoteThesisIOS;
-			};
-			name = Release;
-		};
-		C54088EB25603A84004C1682 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UGWP72DX9D;
-				INFOPLIST_FILE = LoginSceneUITest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.LoginSceneUITest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ArNoteThesisIOS;
-			};
-			name = Debug;
-		};
-		C54088EC25603A84004C1682 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UGWP72DX9D;
-				INFOPLIST_FILE = LoginSceneUITest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.krujz.thesis.LoginSceneUITest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -938,29 +650,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C53C3DC22533220100ACB66D /* Build configuration list for PBXNativeTarget "ArNoteThesisIOSTests" */ = {
+		C551C485256A5B6B003CB8D7 /* Build configuration list for PBXNativeTarget "ArNoteThesisIOSUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C53C3DC32533220100ACB66D /* Debug */,
-				C53C3DC42533220100ACB66D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C53C3DC52533220100ACB66D /* Build configuration list for PBXNativeTarget "ArNoteThesisIOSUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C53C3DC62533220100ACB66D /* Debug */,
-				C53C3DC72533220100ACB66D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C54088EA25603A84004C1682 /* Build configuration list for PBXNativeTarget "LoginSceneUITest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C54088EB25603A84004C1682 /* Debug */,
-				C54088EC25603A84004C1682 /* Release */,
+				C551C486256A5B6B003CB8D7 /* Debug */,
+				C551C487256A5B6B003CB8D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
